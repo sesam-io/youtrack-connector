@@ -1,2 +1,2 @@
-# zendesk-connector
+# youtrack-connector
 

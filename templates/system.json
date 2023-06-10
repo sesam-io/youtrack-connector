@@ -1,0 +1,19 @@
+{
+  "_id": "{{@ system @}}",
+  "headers": {
+    "Authorization": "Bearer $SECRET(api_key)"
+  },
+  "operations": {
+    "projects-list": {
+      "id_expression": "{{ id }}",
+      "method": "GET",
+      "params": {
+        "fields": "id,name,shortName"
+      },
+      "url": "admin/projects"
+    }
+  },
+  "type": "system:rest",
+  "url_pattern": "https://{{@ subdomain @}}.youtrack.cloud/api/%s",
+  "verify_ssl": true
+}

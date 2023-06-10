@@ -1,0 +1,12 @@
+{
+  "additional_parameters": {
+    "subdomain": {}
+  },
+  "auth": "api_key",
+  "datatypes": {
+    "projects": {
+      "template": "templates/projects.json"
+    }
+  },
+  "system-template": "templates/system.json"
+}

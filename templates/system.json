@@ -16,9 +16,17 @@
       "id_expression": "{{ id }}",
       "method": "GET",
       "params": {
-        "fields": "id,avatarUrl,banned,email,fullName,guest,jabberAccountName,login,online,profiles,ringId,savedQueries,tags"
+        "fields": "id,avatarUrl,banned,email,fullName,guest,jabberAccountName,login,online,profiles(id),ringId,savedQueries(id),tags(id)"
       },
       "url": "users"
+    },
+    "issues-list": {
+      "id_expression": "{{ id }}",
+      "method": "GET",
+      "params": {
+        "fields": "id,attachments,comments,commentsCount,created,customFields(id,name,projectCustomField(field(id,name),id),value(name)),description,draftOwner,externalIssue,isDraft,numberInProject,parent(issues(id), linkType(aggregation,directed,localizedName,localizedSourceToTarget,name,readOnly,sourceToTarget,targetToSource),trimmedIssues),project(id),reporter(id),resolved,subtasks(id),summary,updated,updater(id),usesMarkdown,visibility(id),voters(id),watchers(id),wikifiedDescription"
+      },
+      "url": "issues"
     }
   },
   "type": "system:rest",

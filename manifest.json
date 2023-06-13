@@ -9,6 +9,9 @@
     },
     "users": {
       "template": "templates/projects.json"
+    },
+    "issues": {
+      "template": "templates/projects.json"
     }
   },
   "system-template": "templates/system.json"

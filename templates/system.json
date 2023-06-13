@@ -11,6 +11,14 @@
         "fields": "id,name,shortName"
       },
       "url": "admin/projects"
+    },
+    "users-list": {
+      "id_expression": "{{ id }}",
+      "method": "GET",
+      "params": {
+        "fields": "id,avatarUrl,banned,email,fullName,guest,jabberAccountName,login,online,profiles,ringId,savedQueries,tags"
+      },
+      "url": "users"
     }
   },
   "type": "system:rest",

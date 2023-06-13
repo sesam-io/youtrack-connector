@@ -6,6 +6,9 @@
   "datatypes": {
     "projects": {
       "template": "templates/projects.json"
+    },
+    "users": {
+      "template": "templates/projects.json"
     }
   },
   "system-template": "templates/system.json"

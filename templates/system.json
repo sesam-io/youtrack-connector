@@ -15,8 +15,12 @@
     "users-list": {
       "id_expression": "{{ id }}",
       "method": "GET",
+      "next_page_link": "{{url}}",
+      "next_page_termination_strategy": ["empty-result"],
       "params": {
-        "fields": "id,avatarUrl,banned,email,fullName,guest,jabberAccountName,login,online,profiles(id),ringId,savedQueries(id),tags(id)"
+        "$skip": "{% if is_first_page  %}0{% else %}{{previous_params['$top'] * page}}{% endif %}",
+        "$top": 50,
+        "fields": "id,login,fullName,email,jabberAccountName,ringId,guest,online,banned,tags(id,issues(id),color(id,background,foreground),untagOnResolve,visibleFor(id,name,ringId,usersCount,icon,allUsersGroup,teamForProject(id)),updateableBy(id,name,ringId,usersCount,icon,allUsersGroup,teamForProject(id)),readSharingSettings(id,permittedGroups(id,name),permittedUsers(id,email)),updateSharingSettings(id,permittedGroups(id,name),permittedUsers(id,email)),owner(id,email),name),savedQueries(id,query,issues(id)),avatarUrl,profiles(id,general(id,dateFieldFormat(id,presentation,pattern,datePattern),timezone(id,presentation,offset),locale(id,locale,language,community,name)),notifications(id),timetracking(id,periodFormat(id)))"
       },
       "url": "users"
     },
@@ -24,7 +28,7 @@
       "id_expression": "{{ id }}",
       "method": "GET",
       "params": {
-        "fields": "id,attachments(id),comments,commentsCount,created,customFields(id,name,projectCustomField(field(id,name),id),value(name)),description,draftOwner,externalIssue,isDraft,numberInProject,parent(issues(id), linkType(aggregation,directed,localizedName,localizedSourceToTarget,name,readOnly,sourceToTarget,targetToSource),trimmedIssues),project(id),reporter(id),resolved,subtasks(id),summary,updated,updater(id),usesMarkdown,visibility(id),voters(id),watchers(id),wikifiedDescription"
+        "fields": "id,attachments(id,name,author(id,email),created,updated,size,extension,charset,mimeType,metaData,draft,removed,base64Content,url,issue(id),comment(id,text,textPreview,created,updated,author(id,email),deleted),thumbnailURL),comments(id,text,textPreview,created,updated,author(id,email),deleted),commentsCount,created,customFields(id,name,projectCustomField(id),value),description,draftOwner(id,email),externalIssue(id,name,url,key),idReadable,isDraft,links(id,direction,linkType,trimmedIssues(id)),numberInProject,parent(id,direction,linkType,trimmedIssues(id)),project(id),reporter(id,email),resolved,subtasks(id,trimmedIssues(id)),summary,tags(id,issues(id),color(id,background,foreground),untagOnResolve,owner(id,email),name),updated,updater(id,email),voters(id),votes,watchers(id,hasStar,issueWatchers(id,user(id,email))),wikifiedDescription"
       },
       "url": "issues"
     }

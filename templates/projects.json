@@ -3,7 +3,9 @@
   "namespaced_identifiers": false,
   "source": {
     "operation": "{{@ datatype @}}-list",
+    "supports_since": false,
     "system": "{{@ system @}}",
+    "trace": {},
     "type": "rest"
   },
   "type": "pipe"

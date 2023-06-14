@@ -1,0 +1,62 @@
+[
+  {
+    "_id": "{{@ system @}}-{{@ datatype @}}-collect",
+    "namespaced_identifiers": false,
+    "source": {
+      "operation": "{{@ datatype @}}-list",
+      "supports_since": false,
+      "system": "{{@ system @}}",
+      "trace": {},
+      "type": "rest"
+    },
+    "transform": {
+      "rules": {
+        "default": [
+          [
+            "copy",
+            "*"
+          ],
+          [
+            "add",
+            "sesam_youtrack_id",
+            "_S.id"
+          ],
+          [
+            "remove",
+            "id"
+          ],
+          [
+            "add",
+            "sesam_youtrack_login",
+            "_S.login"
+          ],
+          [
+            "remove",
+            "login"
+          ]
+        ]
+      },
+      "type": "dtl"
+    },
+    "type": "pipe"
+  },
+  {
+    "_id": "{{@ system @}}-{{@ datatype @}}-merge",
+    "namespaced_identifiers": false,
+    "source": {
+      "datasets": [
+        "{{@ system @}}-{{@ datatype @}}-collect {{@ datatype @}}",
+        "{{@ system @}}-hub-{{@ datatype @}}-collect hub-{{@ datatype @}}"
+      ],
+      "equality_sets": [
+        [
+          "{{@ datatype @}}.ringId",
+          "hub-{{@ datatype @}}.id"
+        ]
+      ],
+      "type": "merge",
+      "version": 2
+    },
+    "type": "pipe"
+  }
+]

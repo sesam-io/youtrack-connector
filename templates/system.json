@@ -4,6 +4,14 @@
     "Authorization": "Bearer $SECRET(api_key)"
   },
   "operations": {
+    "projects-delete": {
+      "method": "DELETE",
+      "url": "admin/projects/{{ id }}"
+    },
+    "projects-insert": {
+      "method": "POST",
+      "url": "admin/projects"
+    },
     "projects-list": {
       "id_expression": "{{ id }}",
       "method": "GET",
@@ -37,6 +45,17 @@
         "fields": "id,attachments(id,name,author(id,email),created,updated,size,extension,charset,mimeType,metaData,draft,removed,base64Content,url,issue(id),comment(id,text,textPreview,created,updated,author(id,email),deleted),thumbnailURL),comments(id,text,textPreview,created,updated,author(id,email),deleted),commentsCount,created,customFields(id,name,projectCustomField(id),value),description,draftOwner(id,email),externalIssue(id,name,url,key),idReadable,isDraft,links(id,direction,linkType,trimmedIssues(id)),numberInProject,parent(id,direction,linkType,trimmedIssues(id)),project(id),reporter(id,email),resolved,subtasks(id,trimmedIssues(id)),summary,tags(id,issues(id),color(id,background,foreground),untagOnResolve,owner(id,email),name),updated,updater(id,email),voters(id),votes,watchers(id,hasStar,issueWatchers(id,user(id,email))),wikifiedDescription"
       },
       "url": "issues"
+    "projects-lookup": {
+      "id_expression": "{{ id }}",
+      "method": "GET",
+      "params": {
+        "fields": "id,name,shortName"
+      },
+      "url": "admin/projects/{{ id }}"
+    },
+    "projects-update": {
+      "method": "POST",
+      "url": "admin/projects/{{ id }}"
     }
   },
   "type": "system:rest",

@@ -4,25 +4,13 @@
     "Authorization": "Bearer $SECRET(api_key)"
   },
   "operations": {
-    "projects-list": {
-      "id_expression": "{{ id }}",
-      "method": "GET",
-      "params": {
-        "fields": "id,name,shortName"
-      },
-      "url": "admin/projects"
+    "issues-delete": {
+      "method": "DELETE",
+      "url": "api/issues/{{ id }}"
     },
-    "users-list": {
-      "id_expression": "{{ id }}",
-      "method": "GET",
-      "next_page_link": "{{url}}",
-      "next_page_termination_strategy": ["empty-result"],
-      "params": {
-        "$skip": "{% if is_first_page  %}0{% else %}{{previous_params['$top'] * page}}{% endif %}",
-        "$top": 50,
-        "fields": "id,login,fullName,email,jabberAccountName,ringId,guest,online,banned,tags(id,issues(id),color(id,background,foreground),untagOnResolve,visibleFor(id,name,ringId,usersCount,icon,allUsersGroup,teamForProject(id)),updateableBy(id,name,ringId,usersCount,icon,allUsersGroup,teamForProject(id)),readSharingSettings(id,permittedGroups(id,name),permittedUsers(id,email)),updateSharingSettings(id,permittedGroups(id,name),permittedUsers(id,email)),owner(id,email),name),savedQueries(id,query,issues(id)),avatarUrl,profiles(id,general(id,dateFieldFormat(id,presentation,pattern,datePattern),timezone(id,presentation,offset),locale(id,locale,language,community,name)),notifications(id),timetracking(id,periodFormat(id)))"
-      },
-      "url": "users"
+    "issues-insert": {
+      "method": "POST",
+      "url": "api/issues"
     },
     "issues-list": {
       "id_expression": "{{ id }}",
@@ -30,10 +18,105 @@
       "params": {
         "fields": "id,attachments(id,name,author(id,email),created,updated,size,extension,charset,mimeType,metaData,draft,removed,base64Content,url,issue(id),comment(id,text,textPreview,created,updated,author(id,email),deleted),thumbnailURL),comments(id,text,textPreview,created,updated,author(id,email),deleted),commentsCount,created,customFields(id,name,projectCustomField(id),value),description,draftOwner(id,email),externalIssue(id,name,url,key),idReadable,isDraft,links(id,direction,linkType,trimmedIssues(id)),numberInProject,parent(id,direction,linkType,trimmedIssues(id)),project(id),reporter(id,email),resolved,subtasks(id,trimmedIssues(id)),summary,tags(id,issues(id),color(id,background,foreground),untagOnResolve,owner(id,email),name),updated,updater(id,email),voters(id),votes,watchers(id,hasStar,issueWatchers(id,user(id,email))),wikifiedDescription"
       },
-      "url": "issues"
+      "url": "api/issues"
+    },
+    "issues-lookup": {
+      "id_expression": "{{ id }}",
+      "method": "GET",
+      "params": {
+        "fields": "id,attachments(id,name,author(id,email),created,updated,size,extension,charset,mimeType,metaData,draft,removed,base64Content,url,issue(id),comment(id,text,textPreview,created,updated,author(id,email),deleted),thumbnailURL),comments(id,text,textPreview,created,updated,author(id,email),deleted),commentsCount,created,customFields(id,name,projectCustomField(id),value),description,draftOwner(id,email),externalIssue(id,name,url,key),idReadable,isDraft,links(id,direction,linkType,trimmedIssues(id)),numberInProject,parent(id,direction,linkType,trimmedIssues(id)),project(id),reporter(id,email),resolved,subtasks(id,trimmedIssues(id)),summary,tags(id,issues(id),color(id,background,foreground),untagOnResolve,owner(id,email),name),updated,updater(id,email),voters(id),votes,watchers(id,hasStar,issueWatchers(id,user(id,email))),wikifiedDescription"
+      },
+      "url": "api/issues/{{ id }}"
+    },
+    "issues-update": {
+      "method": "POST",
+      "url": "api/issues/{{ id }}"
+    },
+    "projects-delete": {
+      "method": "DELETE",
+      "url": "api/admin/projects/{{ id }}"
+    },
+    "projects-insert": {
+      "method": "POST",
+      "url": "api/admin/projects"
+    },
+    "projects-list": {
+      "id_expression": "{{ id }}",
+      "method": "GET",
+      "next_page_link": "{{url}}",
+      "next_page_termination_strategy": [
+        "empty-result"
+      ],
+      "params": {
+        "$skip": "{% if is_first_page  %}0{% else %}{{previous_params['$top'] * page}}{% endif %}",
+        "$top": 42,
+        "fields": "id,name,shortName"
+      },
+      "url": "api/admin/projects"
+    },
+    "projects-lookup": {
+      "id_expression": "{{ id }}",
+      "method": "GET",
+      "params": {
+        "fields": "id,name,shortName"
+      },
+      "url": "api/admin/projects/{{ id }}"
+    },
+    "projects-update": {
+      "method": "POST",
+      "url": "api/admin/projects/{{ id }}"
+    },
+    "users-delete": {
+      "method": "DELETE",
+      "url": "hub/rest/users/{{ id }}"
+    },
+    "users-insert": {
+      "method": "POST",
+      "url": "hub/rest/users"
+    },
+    "users-list": {
+      "id_expression": "{{ id }}",
+      "method": "GET",
+      "next_page_link": "{{url}}",
+      "next_page_termination_strategy": [
+        "empty-result"
+      ],
+      "params": {
+        "$skip": "{% if is_first_page  %}0{% else %}{{previous_params['$top'] * page}}{% endif %}",
+        "$top": 50,
+        "fields": "id,login,profile,banned,aliases,name"
+      },
+      "payload_property": "users",
+      "url": "hub/rest/users"
+    },
+    "users-lookup": {
+      "id_expression": "{{ id }}",
+      "method": "GET",
+      "params": {
+        "fields": "id,login,profile,banned,aliases,name"
+      },
+      "url": "hub/rest/users/{{ id }}"
+    },
+    "users-update": {
+      "method": "POST",
+      "url": "hub/rest/users/{{ id }}"
+    },
+    "usersyoutrack-list": {
+      "id_expression": "{{ id }}",
+      "method": "GET",
+      "next_page_link": "{{url}}",
+      "next_page_termination_strategy": [
+        "empty-result"
+      ],
+      "params": {
+        "$skip": "{% if is_first_page  %}0{% else %}{{previous_params['$top'] * page}}{% endif %}",
+        "$top": 50,
+        "fields": "id,login,ringId"
+      },
+      "url": "api/users"
     }
   },
   "type": "system:rest",
-  "url_pattern": "https://{{@ subdomain @}}.youtrack.cloud/api/%s",
+  "url_pattern": "https://{{@ subdomain @}}.youtrack.cloud/%s",
   "verify_ssl": true
 }

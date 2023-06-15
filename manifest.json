@@ -4,9 +4,6 @@
   },
   "auth": "api_key",
   "datatypes": {
-    "hub-users": {
-      "template": "templates/projects.json"
-    },
     "issues": {
       "template": "templates/projects.json"
     },
@@ -15,6 +12,9 @@
     },
     "users": {
       "template": "templates/users.json"
+    },
+    "users-youtrack": {
+      "template": "templates/users-youtrack.json"
     }
   },
   "system-template": "templates/system.json"

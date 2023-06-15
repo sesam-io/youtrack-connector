@@ -1,6 +1,6 @@
 [
   {
-    "_id": "{{@ system @}}-{{@ datatype @}}-collect",
+    "_id": "{{@ system @}}-{{@ datatype @}}-all",
     "namespaced_identifiers": false,
     "source": {
       "operation": "{{@ datatype @}}-list",
@@ -9,53 +9,93 @@
       "trace": {},
       "type": "rest"
     },
-    "transform": {
-      "rules": {
-        "default": [
-          [
-            "copy",
-            "*"
-          ],
-          [
-            "add",
-            "sesam_youtrack_id",
-            "_S.id"
-          ],
-          [
-            "remove",
-            "id"
-          ],
-          [
-            "add",
-            "sesam_youtrack_login",
-            "_S.login"
-          ],
-          [
-            "remove",
-            "login"
-          ]
-        ]
-      },
-      "type": "dtl"
-    },
     "type": "pipe"
   },
   {
-    "_id": "{{@ system @}}-{{@ datatype @}}-merge",
+    "_id": "{{@ system @}}-{{@ datatype @}}-collect",
+    "exclude_completeness": [
+      "{{@ system @}}-{{@ datatype @}}-share"
+    ],
     "namespaced_identifiers": false,
     "source": {
-      "datasets": [
-        "{{@ system @}}-{{@ datatype @}}-collect {{@ datatype @}}",
-        "{{@ system @}}-hub-{{@ datatype @}}-collect hub-{{@ datatype @}}"
-      ],
-      "equality_sets": [
-        [
-          "{{@ datatype @}}.ringId",
-          "hub-{{@ datatype @}}.id"
-        ]
-      ],
-      "type": "merge",
-      "version": 2
+      "dataset": "{{@ system @}}-{{@ datatype @}}-all",
+      "type": "dataset"
+    },
+    "transform": [
+      {
+        "properties": {
+          "primary_key": "id",
+          "rest_system": "{{@ system @}}",
+          "share_dataset": "{{@ system @}}-{{@ datatype @}}-share"
+        },
+        "template": "transform-collect-rest",
+        "type": "template"
+      },
+      {
+        "rules": {
+          "default": [
+            [
+              "copy",
+              "*"
+            ],
+            [
+              "merge",
+              [
+                "apply-hops",
+                "user-youtrack",
+                {
+                  "datasets": [
+                    "{{@ system @}}-{{@ datatype @}}-youtrack-collect {{@ datatype @}}-youtrack"
+                  ],
+                  "where": [
+                    [
+                      "eq",
+                      "_S._id",
+                      "{{@ datatype @}}-youtrack.ringId"
+                    ]
+                  ]
+                }
+              ]
+            ]
+          ],
+          "user-youtrack": [
+            [
+              "add",
+              "sesam_youtrack_user_id",
+              "_S.id"
+            ]
+          ]
+        },
+        "type": "dtl"
+      }
+    ],
+    "type": "pipe"
+  },
+  {
+    "_id": "{{@ system @}}-{{@ datatype @}}-share",
+    "batch_size": 1,
+    "namespaced_identifiers": false,
+    "sink": {
+      "deletion_tracking": false,
+      "set_initial_offset": "onload"
+    },
+    "source": {
+      "dataset": "{{@ system @}}-{{@ datatype @}}-transform",
+      "type": "dataset"
+    },
+    "transform": {
+      "properties": {
+        "operation_delete": "{{@ datatype @}}-delete",
+        "operation_insert": "{{@ datatype @}}-insert",
+        "operation_lookup": "{{@ datatype @}}-lookup",
+        "operation_update": "{{@ datatype @}}-update",
+        "primary_key": "id",
+        "rest_system": "{{@ system @}}",
+        "share_dataset": "{{@ system @}}-{{@ datatype @}}-share"
+      },
+      "template": "transform-share-rest",
+      "trace": true,
+      "type": "template"
     },
     "type": "pipe"
   }

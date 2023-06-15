@@ -8,15 +8,14 @@ YouTrack's profile of the user account (ref: https://www.jetbrains.com/help/yout
 
 The "real" user data can be (retrieved and modified) via the "Hub" api (ref: https://www.jetbrains.com/help/youtrack/devportal/HUB-REST-API_Users.html).
 
-The user profiles from the Youtrack api has two ids: 
+The user profile from the Youtrack api has two ids:
 
-  * A "Youtrack" id that looks something like this: "1-6".
-  * A "Hub" id that looks something like this: "f76f0560-7483-47cf-a82f-5dc1f46ed14c"
+  * A "id" field that looks something like this: "1-6".
+  * A "ringId" field that looks something like "f76f0560-7483-47cf-a82f-5dc1f46ed14c" and that refers to the "id" field
+    of the "Hub" user.
 
-The YouTrack user has a "ringId" field that contains the "Hub" user-id.
-
-We collect the Youtrack users in the *-users-youtrack-collect" pipe. We really only need the "id" and "ringId" fields,
-but we get the "login" field as well to make debuggin easier.  Example entity:
+We collect the Youtrack users in the *-usersyoutrack-collect" pipe. We really only need the "id" and "ringId" fields,
+but we get the "login" field as well to make debugging easier.  Example entity:
 ```
 {
   "_id": "1-6",
@@ -26,8 +25,11 @@ but we get the "login" field as well to make debuggin easier.  Example entity:
   "ringId": "f76f0560-7483-47cf-a82f-5dc1f46ed14c"
 }
 ```
+The reason we need to collect the usersyoutrack is that it is this id that that the other datatypes in Youtrack refer to.
+This is a readonly datatype, so there is no share-pipe for this.
 
-We collect the Hub users in the *-users-all pipe. This is where we get all the user data. Example entity:
+
+We collect the Hub users in the *-users-collect pipe. This is where we get all the actual user data. Example entity:
 ```
 {
   "_id": "c6b6e9c6-0f42-42f3-ac96-2ea69ac758fd",
@@ -50,41 +52,6 @@ We collect the Hub users in the *-users-all pipe. This is where we get all the u
       "name": "en"
     }
   },
-  "type": "user"
-}
-```
-
-And finally we connect the Youtrack and Hub users in the *-users-collect pipe. This pipe reads from the *-users-all
-pipe and uses a hop to add the Youtrack user "id" value as "sesam_youtrack_user_id". We need this id, since it is the
-one that the other datatypes in Youtrack refer to. Example entity:
-```
-{
-  "_id": "c6b6e9c6-0f42-42f3-ac96-2ea69ac758fd",
-  "_updated": 14,
-  "_previous": 10,
-  "_deleted": false,
-  "_ts": 1686808707943601,
-  "_hash": "066ca7b9a26232210993146204588dbe",
-  "banned": false,
-  "id": "c6b6e9c6-0f42-42f3-ac96-2ea69ac758fd",
-  "login": "knut.johannessen",
-  "name": "Knut Johannessen2",
-  "profile": {
-    "avatar": {
-      "type": "defaultavatar",
-      "url": "https://sesamtalkdev.youtrack.cloud/hub/api/rest/avatar/c6b6e9c6-0f42-42f3-ac96-2ea69ac758fd"
-    },
-    "email": {
-      "email": "knut.johannessen@sesam.io",
-      "type": "EmailJSON",
-      "verified": true
-    },
-    "locale": {
-      "language": "en",
-      "name": "en"
-    }
-  },
-  "sesam_youtrack_user_id": "1-3",
   "type": "user"
 }
 ```

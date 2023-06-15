@@ -9,29 +9,16 @@
       "operation": "{{@ datatype @}}-list",
       "supports_since": false,
       "system": "{{@ system @}}",
-      "trace": {},
       "type": "rest"
     },
     "transform": [
       {
         "properties": {
           "primary_key": "id",
-          "rest_system": "{{@ system @}}",
           "share_dataset": "{{@ system @}}-{{@ datatype @}}-share"
         },
         "template": "transform-collect-rest",
         "type": "template"
-      },
-      {
-        "rules": {
-          "default": [
-            [
-              "copy",
-              "*"
-            ]
-          ]
-        },
-        "type": "dtl"
       }
     ],
     "type": "pipe"
@@ -59,7 +46,6 @@
         "share_dataset": "{{@ system @}}-{{@ datatype @}}-share"
       },
       "template": "transform-share-rest",
-      "trace": true,
       "type": "template"
     },
     "type": "pipe"

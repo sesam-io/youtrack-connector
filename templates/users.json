@@ -1,74 +1,24 @@
 [
   {
-    "_id": "{{@ system @}}-{{@ datatype @}}-all",
-    "namespaced_identifiers": false,
-    "source": {
-      "operation": "{{@ datatype @}}-list",
-      "supports_since": false,
-      "system": "{{@ system @}}",
-      "trace": {},
-      "type": "rest"
-    },
-    "type": "pipe"
-  },
-  {
     "_id": "{{@ system @}}-{{@ datatype @}}-collect",
     "exclude_completeness": [
       "{{@ system @}}-{{@ datatype @}}-share"
     ],
     "namespaced_identifiers": false,
     "source": {
-      "dataset": "{{@ system @}}-{{@ datatype @}}-all",
-      "type": "dataset"
+      "operation": "{{@ datatype @}}-list",
+      "supports_since": false,
+      "system": "{{@ system @}}",
+      "type": "rest"
     },
-    "transform": [
-      {
-        "properties": {
-          "primary_key": "id",
-          "rest_system": "{{@ system @}}",
-          "share_dataset": "{{@ system @}}-{{@ datatype @}}-share"
-        },
-        "template": "transform-collect-rest",
-        "type": "template"
+    "transform": {
+      "properties": {
+        "primary_key": "id",
+        "share_dataset": "{{@ system @}}-{{@ datatype @}}-share"
       },
-      {
-        "rules": {
-          "default": [
-            [
-              "copy",
-              "*"
-            ],
-            [
-              "merge",
-              [
-                "apply-hops",
-                "user-youtrack",
-                {
-                  "datasets": [
-                    "{{@ system @}}-{{@ datatype @}}-youtrack-collect {{@ datatype @}}-youtrack"
-                  ],
-                  "where": [
-                    [
-                      "eq",
-                      "_S._id",
-                      "{{@ datatype @}}-youtrack.ringId"
-                    ]
-                  ]
-                }
-              ]
-            ]
-          ],
-          "user-youtrack": [
-            [
-              "add",
-              "sesam_youtrack_user_id",
-              "_S.id"
-            ]
-          ]
-        },
-        "type": "dtl"
-      }
-    ],
+      "template": "transform-collect-rest",
+      "type": "template"
+    },
     "type": "pipe"
   },
   {
@@ -94,7 +44,6 @@
         "share_dataset": "{{@ system @}}-{{@ datatype @}}-share"
       },
       "template": "transform-share-rest",
-      "trace": true,
       "type": "template"
     },
     "type": "pipe"

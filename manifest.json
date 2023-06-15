@@ -13,8 +13,8 @@
     "users": {
       "template": "templates/users.json"
     },
-    "users-youtrack": {
-      "template": "templates/users-youtrack.json"
+    "usersyoutrack": {
+      "template": "templates/usersyoutrack.json"
     }
   },
   "system-template": "templates/system.json"

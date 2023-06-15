@@ -101,7 +101,7 @@
       "method": "POST",
       "url": "hub/rest/users/{{ id }}"
     },
-    "users-youtrack-list": {
+    "usersyoutrack-list": {
       "id_expression": "{{ id }}",
       "method": "GET",
       "next_page_link": "{{url}}",

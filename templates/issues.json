@@ -1,7 +1,6 @@
 [
   {
     "_id": "{{@ system @}}-{{@ datatype @}}-collect",
-    "comment": "WARNING! This pipe is generated from the template of the 'projects' datatype and changes will be silently ignored during collapse. For more information see the connectorpy README.",
     "exclude_completeness": [
       "{{@ system @}}-{{@ datatype @}}-share"
     ],
@@ -51,7 +50,6 @@
   {
     "_id": "{{@ system @}}-{{@ datatype @}}-share",
     "batch_size": 1,
-    "comment": "WARNING! This pipe is generated from the template of the 'projects' datatype and changes will be silently ignored during collapse. For more information see the connectorpy README.",
     "namespaced_identifiers": false,
     "sink": {
       "deletion_tracking": false,

@@ -11,7 +11,7 @@
       "template": "templates/projects.json"
     },
     "users": {
-      "template": "templates/users.json"
+      "template": "templates/projects.json"
     },
     "usersyoutrack": {
       "template": "templates/usersyoutrack.json"

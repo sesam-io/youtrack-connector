@@ -5,7 +5,7 @@
   "auth": "api_key",
   "datatypes": {
     "issues": {
-      "template": "templates/projects.json"
+      "template": "templates/issues.json"
     },
     "projects": {
       "template": "templates/projects.json"

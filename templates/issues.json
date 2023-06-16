@@ -6,9 +6,8 @@
     ],
     "namespaced_identifiers": false,
     "source": {
-      "is_since_comparable": true,
       "operation": "{{@ datatype @}}-list",
-      "supports_since": true,
+      "supports_since": false,
       "system": "{{@ system @}}",
       "type": "rest"
     },

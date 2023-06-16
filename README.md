@@ -56,3 +56,25 @@ We collect the Hub users in the *-users-collect pipe. This is where we get all t
 }
 ```
 
+### Testing APIs with Postman
+Choose the authorization method to be the `Bearer Token` and use your Youtrack api key as for the token. 
+
+URL template: https://`<domain>`.youtrack.cloud/
+
+URL for Youtrack users: 
+https://sesamtalkdev.youtrack.cloud/api/users
+
+URL for projects:
+https://sesamtalkdev.youtrack.cloud/api/admin/projects
+
+URL for issues: 
+https://sesamtalkdev.youtrack.cloud/api/issues
+
+URL for Hub users: 
+https://sesamtalkdev.youtrack.cloud/hub/rest/users
+
+All of the APIs above accept a set of `fields` that will return a selective array of attributes that you choose. Feed the fields attributes as URL parameters. 
+
+`$skip` and `$top` URL parameters are used for pagination. 
+
+The API for the list of issues have an `updated` field which is in the format of long and can potentially be used for continuation support though we still have not figured out a solid way to do so. Youtrack seems not to have a since property to indicate changes easily and uses a `query` URL parameter to fetch records. More research needs to be done on this subject. 

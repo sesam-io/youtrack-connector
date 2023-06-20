@@ -115,14 +115,6 @@
       },
       "url": "api/users"
     },
-    "workitems-delete": {
-      "method": "DELETE",
-      "url": "api/workItems/{{ id }}"
-    },
-    "workitems-insert": {
-      "method": "POST",
-      "url": "api/workItems"
-    },
     "workitems-list": {
       "id_expression": "{{ id }}",
       "method": "GET",
@@ -136,18 +128,6 @@
         "fields": "id,author(id),creator(id),text,type(id),created,updated,duration(id,minutes,presentation),date,issue(id),attributes(id,value(id))"
       },
       "url": "api/workItems"
-    },
-    "workitems-lookup": {
-      "id_expression": "{{ id }}",
-      "method": "GET",
-      "params": {
-        "fields": "id,author(id),creator(id),text,type(id),created,updated,duration(id,minutes,presentation),date,issue(id),attributes(id,value(id))"
-      },
-      "url": "api/workItems/{{ id }}"
-    },
-    "workitems-update": {
-      "method": "POST",
-      "url": "api/workItems/{{ id }}"
     }
   },
   "type": "system:rest",

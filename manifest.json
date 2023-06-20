@@ -15,6 +15,9 @@
     },
     "usersyoutrack": {
       "template": "templates/usersyoutrack.json"
+    },
+    "workitems": {
+      "template": "templates/workitems.json"
     }
   },
   "system-template": "templates/system.json"

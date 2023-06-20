@@ -114,6 +114,20 @@
         "fields": "id,login,ringId"
       },
       "url": "api/users"
+    },
+    "workitems-list": {
+      "id_expression": "{{ id }}",
+      "method": "GET",
+      "next_page_link": "{{url}}",
+      "next_page_termination_strategy": [
+        "empty-result"
+      ],
+      "params": {
+        "$skip": "{% if is_first_page  %}0{% else %}{{previous_params['$top'] * page}}{% endif %}",
+        "$top": 42,
+        "fields": "id,author(id),creator(id),text,type(id),created,updated,duration(id,minutes,presentation),date,issue(id),attributes(id,value(id))"
+      },
+      "url": "api/workItems"
     }
   },
   "type": "system:rest",

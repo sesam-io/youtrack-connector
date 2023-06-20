@@ -1,0 +1,59 @@
+{
+  "_id": "{{@ system @}}-{{@ datatype @}}-collect",
+  "exclude_completeness": [
+    "{{@ system @}}-{{@ datatype @}}-share"
+  ],
+  "namespaced_identifiers": false,
+  "source": {
+    "operation": "{{@ datatype @}}-list",
+    "supports_since": false,
+    "system": "{{@ system @}}",
+    "type": "rest"
+  },
+  "transform": [
+    {
+      "properties": {
+        "primary_key": "id",
+        "share_dataset": "{{@ system @}}-{{@ datatype @}}-share"
+      },
+      "template": "transform-collect-rest",
+      "type": "template"
+    },
+    {
+      "rules": {
+        "default": [
+          [
+            "copy",
+            "*"
+          ],
+          [
+            "comment",
+            "Set $last_modified on 'updated' if set, else fallback to 'created'."
+          ],
+          [
+            "add",
+            "$last_modified",
+            [
+              "datetime",
+              [
+                "multiply",
+                1000000,
+                [
+                  "if",
+                  [
+                    "is-not-null",
+                    "_S.updated"
+                  ],
+                  "_S.updated",
+                  "_S.created"
+                ]
+              ]
+            ]
+          ]
+        ]
+      },
+      "type": "dtl"
+    }
+  ],
+  "type": "pipe"
+}

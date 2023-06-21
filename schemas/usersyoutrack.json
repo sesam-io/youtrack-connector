@@ -1,0 +1,209 @@
+{
+  "$id": "/api/pipes/xxxxxx-usersyoutrack-collect/entity-types/sink",
+  "$schema": "http://json-schema.org/schema#",
+  "additionalProperties": true,
+  "properties": {
+    "id": {
+      "description": "The ID of the user. Read-only.",
+      "type": "string"
+    }, 
+    "login": {
+      "description": "The login of the user. Read-only.",
+      "type": "string"
+    },
+    "fullName": {
+      "description": "The full name of the user as seen in their profile. Read-only.",
+      "type": "string"
+    },
+    "email": {
+      "description": "The email address of the user. Read-only. Can be null.",
+      "type": "string"
+    },
+    "jabberAccountName": {
+      "description": "The jabber account name of the user. Read-only. Can be null.",
+      "type": "string"
+    },
+    "ringId": {
+      "description": "ID of the user in Hub. You can use this ID for operations in Hub, and for matching users between YouTrack and Hub. Read-only. Can be null.",
+      "type": "string"
+    },
+    "guest": {
+      "description": "ID of the user in Hub. You can use this ID for operations in Hub, and for matching users between YouTrack and Hub. Read-only. Can be null.",
+      "type": "boolean"
+    },
+    "online": {
+      "description": "Indicates whether the user is currently online. Read-only.",
+      "type": "boolean"
+    },
+    "banned": {
+      "description": "Indicates whether the user is banned. Read-only.",
+      "type": "boolean"
+    },
+    "tags": {
+      "description": "Tags that belong to this user. Read-only.",
+      "items": {
+        "additionalProperties": true,
+        "properties": {
+          "id": {
+            "description": "The ID of the tag. Read-only.",
+            "type": "string"
+          },
+          "issues": {
+            "description": "The collection of issues that this tag is added to.",
+            "items": {
+              "additionalProperties": true,
+              "properties": {},
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "color": {
+            "description": "The color settings of the tag.",
+            "additionalProperties": true,
+            "properties": {},
+            "type": "object"
+          },
+          "untagOnResolve": {
+            "description": "If true, this tag will be automatically removed from an issue when the issue is resolved.",
+            "type": "boolean"
+          },
+          "visibleFor": {
+            "description": "Deprecated. Use the readSharingSettings attribute instead. Group of users that can see this tag. If the tag is visible only to its owner, this property is null. Can be null.",
+            "additionalProperties": true,
+            "properties": {},
+            "type": "object"
+          },
+          "updateableBy": {
+            "description": "Deprecated. Use the updateSharingSettings attribute instead. Group of users that can update this tag. If only the tag's owner can update it, this property is null. Can be null.",
+            "additionalProperties": true,
+            "properties": {},
+            "type": "object"
+          },
+          "readSharingSettings": {
+            "description": "Users and groups that can see this tag. If the tag is visible only to its owner, this property contains an empty array. Read-only.",
+            "additionalProperties": true,
+            "properties": {},
+            "type": "object"
+          },
+          "tagSharingSettings": {
+            "description": "Users and groups that can use this tag. These users can add the tag to or remove the tag from the issues that they also have permission to view and update. If the tag can be used only by its owner, this property contains an empty array. Read-only.",
+            "additionalProperties": true,
+            "properties": {},
+            "type": "object"
+          },
+          "updateSharingSettings": {
+            "description": "Users and groups that can update this tag. If only the tag's owner can update it, this property contains an empty array. Read-only.",
+            "additionalProperties": true,
+            "properties": {},
+            "type": "object"
+          },
+          "owner": {
+            "description": "The user who created the watch folder. Read-only. Can be null.",
+            "additionalProperties": true,
+            "properties": {},
+            "type": "object"
+          },
+          "name": {
+            "description": "The name of the issue folder. Can be null.",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "savedQueries": {
+      "description": "Saved searches that belong to this user. Read-only.",
+      "additionalProperties": true,
+      "properties": {
+        "id": {
+          "description": "The ID of the saved search. Read-only.",
+          "type": "string"
+        },
+        "query": {
+          "description": "The query that is saved in this search. Can be null.",
+          "type": "string"
+        },
+        "issues": {
+          "description": "The collection of issues that match this saved search. Read-only.",
+          "items": {
+            "additionalProperties": true,
+            "properties": {},
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "visibleFor": {
+          "description": "Deprecated. Use the readSharingSettings attribute instead. Group of users that can see this saved search. If the saved search is visible only to its owner, this property is null. Can be null.",
+          "additionalProperties": true,
+          "properties": {},
+          "type": "object"
+        },
+        "updateableBy": {
+          "description": "Deprecated. Use the updateSharingSettings attribute instead. Group of users that can update this saved search. If only the owner of the saved search can update it, this property is null. Can be null.",
+          "additionalProperties": true,
+          "properties": {},
+          "type": "object"
+        },
+        "readSharingSettings": {
+          "description": "Users and groups that can see this saved search. If the saved search is visible only to its owner, this property contains an empty array. Read-only.",
+          "additionalProperties": true,
+          "properties": {},
+          "type": "object"
+        },
+        "updateSharingSettings": {
+          "description": "Users and groups that can update this saved search. If only the owner of the saved search can update it, this property contains an empty array. Read-only.",
+          "additionalProperties": true,
+          "properties": {},
+          "type": "object"
+        },
+        "owner": {
+          "description": "The user who created the watch folder. Read-only. Can be null.",
+          "additionalProperties": true,
+          "properties": {},
+          "type": "object"
+        },
+        "name": {
+          "description": "The name of the issue folder. Can be null.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "avatarUrl": {
+      "description": "The URL of the user avatar. Read-only.",
+      "type": "string"
+    },
+    "profiles": {
+      "description": "The profiles of the user. Read-only.",
+      "additionalProperties": true,
+      "properties": {
+        "id": {
+          "description": "The ID of the group of the user profile settings. Read-only.",
+          "type": "string"
+        },
+        "general": {
+          "description": "The general settings of a user profile. Read-only.",
+          "additionalProperties": true,
+          "properties": {},
+          "type": "object"
+        },
+        "notifications": {
+          "description": "The notifications settings of a user profile. Read-only.",
+          "additionalProperties": true,
+          "properties": {},
+          "type": "object"
+        },
+        "timetracking": {
+          "description": "The time tracking user profile settings. Read-only.",
+          "additionalProperties": true,
+          "properties": {},
+          "type": "object"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "title": "Pipe sink entity type: xxxxxx-usersyoutrack-collect",
+  "type": "object"
+}

@@ -1,0 +1,726 @@
+{
+  "$id": "/api/pipes/xxxxxx-users-collect/entity-types/sink",
+  "$schema": "http://json-schema.org/schema#",
+  "additionalProperties": true,
+  "properties": {
+    "transitiveTeams": {
+      "description": "projectTeam",
+      "items": {
+        "additionalProperties": true,
+        "properties": {
+          "groups": {
+            "description": "userGroup",
+            "items": {},
+            "type": "array"
+          },
+          "users": {
+            "description": "user",
+            "items": {},
+            "type": "array"
+          },
+          "ownUsers": {
+            "description": "user",
+            "items": {},
+            "type": "array"
+          },
+          "project": {
+            "description": "project",
+            "additionalProperties": true,
+            "properties": {},
+            "type": "object"
+          },
+          "userCount": {
+            "type": "integer"
+          },
+          "organizations": {
+            "description": "organization",
+            "items": {},
+            "type": "array"
+          },
+          "id": {
+            "type": "string"
+          },
+          "aliases": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "projectRoles": {
+            "description": "projectRole",
+            "items": {},
+            "type": "array"
+          },
+          "transitiveProjectRoles": {
+            "description": "projectRole",
+            "items": {},
+            "type": "array"
+          },
+          "sourcedProjectRoles": {
+            "description": "sourcedProjectRole",
+            "items": {},
+            "type": "array"
+          },
+          "organizationRoles": {
+            "description": "organizationRole",
+            "items": {},
+            "type": "array"
+          },
+          "transitiveOrganizationRoles": {
+            "description": "transitiveOrganizationRole",
+            "items": {},
+            "type": "array"
+          },
+          "sourcedOrganizationRoles": {
+            "description": "sourcedOrganizationRole",
+            "items": {},
+            "type": "array"
+          }
+        }
+      },
+      "type": "array"
+    },
+    "details": {
+      "description": "details",
+      "items": {
+        "additionalProperties": true,
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "aliases": {
+            "description": "alias",
+            "items": {},
+            "type": "array"
+          },
+          "email": {
+            "additionalProperties": true,
+            "properties": {},
+            "type": "object"
+          },
+          "authModule": {
+            "additionalProperties": true,
+            "properties": {},
+            "type": "object"
+          },
+          "authModuleName": {
+            "type": "string"
+          },
+          "user": {
+            "additionalProperties": true,
+            "properties": {},
+            "type": "object"
+          },
+          "lastAccessTime": {
+            "description": "It represents a date and time in the format of a long number",
+            "type": "integer"
+          },
+          "lastAccessAddress": {
+            "type": "string"
+          },
+          "lastAccessUserAgent": {
+            "type": "string"
+          }
+        }
+      },
+      "type": "array"
+    },
+    "VCSUserNames": {
+      "description": "vcsUserName",
+      "items": {
+        "additionalProperties": true,
+        "properties": {
+          "name": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "sshPublicKeys": {
+      "description": "sshPublicKey",
+      "items": {
+        "additionalProperties": true,
+        "properties": {
+          "fingerPrint": {
+            "type": "string"
+          },
+          "data": {
+            "type": "string"
+          },
+          "openSshKey": {
+            "type": "string"
+          },
+          "comment": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "licenses": {
+      "description": "license",
+      "items": {
+        "additionalProperties": true,
+        "properties": {
+          "licenseKey": {
+            "type": "string"
+          },
+          "licenseName": {
+            "type": "string"
+          },
+          "service": {
+            "additionalProperties": true,
+            "properties": {},
+            "type": "object"
+          },
+          "users": {
+            "description": "user",
+            "items": {},
+            "type": "array"
+          },
+          "autoJoinGroups": {
+            "description": "userGroup",
+            "items": {},
+            "type": "array"
+          },
+          "licenseInfo": {
+            "additionalProperties": true,
+            "properties": {},
+            "type": "object"
+          },
+          "availableLicenses": {
+            "type": "integer"
+          },
+          "availableAgentLicenses": {
+            "type": "integer"
+          },
+          "availableReporterLicenses": {
+            "type": "integer"
+          },
+          "id": {
+            "description": "from settings",
+            "type": "string"
+          },
+          "aliases": {
+            "description": "alis from settings",
+            "items": {},
+            "type": "array"
+          }
+        }
+      },
+      "type": "array"
+    },
+    "creationTime": {
+      "description": "Date and time in the format of a long number",
+      "type": "integer"
+    },
+    "lastAccessTime": {
+      "description": "Date and time in the format of a long number",
+      "type": "integer"
+    },
+    "refreshTokens": {
+      "description": "refreshToken",
+      "items": {
+        "additionalProperties": true,
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "client": {
+            "description": "service",
+            "additionalProperties": true,
+            "properties": {},
+            "type": "object"
+          },
+          "scope": {
+            "description": "service",
+            "items": {},
+            "type": "array"
+          },
+          "user": {
+            "additionalProperties": true,
+            "properties": {},
+            "type": "object"
+          },
+          "creationTime": {
+            "description": "Date and time in the format of a long number",
+            "type": "integer"
+          },
+          "lastAccessTime": {
+            "description": "Date and time in the format of a long number",
+            "type": "integer"
+          },
+          "expires": {
+            "description": "Date and time in the format of a long number",
+            "type": "integer"
+          }
+        }
+      },
+      "type": "array"
+    },
+    "permanentTokens": {
+      "description": "permanentToken",
+      "items": {
+        "additionalProperties": true,
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "token": {
+            "type": "string"
+          },
+          "scope": {
+            "description": "service",
+            "items": {},
+            "type": "array"
+          },
+          "user": {
+            "additionalProperties": true,
+            "properties": {},
+            "type": "object"
+          },
+          "author": {
+            "additionalProperties": true,
+            "properties": {},
+            "type": "object"
+          },
+          "creationTime": {
+            "description": "Date and time in the format of a long number",
+            "type": "integer"
+          },
+          "lastAccessTime": {
+            "description": "Date and time in the format of a long number",
+            "type": "integer"
+          }
+        }
+      },
+      "type": "array"
+    },
+    "approvedScopes": {
+      "description": "approvedScope",
+      "items": {
+        "additionalProperties": true,
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "client": {
+            "description": "service",
+            "additionalProperties": true,
+            "properties": {},
+            "type": "object"
+          },
+          "scope": {
+            "description": "service",
+            "items": {},
+            "type": "array"
+          },
+          "user": {
+            "additionalProperties": true,
+            "properties": {},
+            "type": "object"
+          },
+          "expiresOn": {
+            "description": "Date and time in the format of a long number",
+            "type": "integer"
+          }
+        }
+      },
+      "type": "array"
+    },
+    "applicationPasswords": {
+      "description": "applicationPassword",
+      "items": {
+        "additionalProperties": true,
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          },
+          "user": {
+            "additionalProperties": true,
+            "properties": {},
+            "type": "object"
+          },
+          "creationTime": {
+            "description": "Date and time in the format of a long number",
+            "type": "integer"
+          },
+          "lastAccessTime": {
+            "description": "Date and time in the format of a long number",
+            "type": "integer"
+          },
+          "lastAccessAddress": {
+            "type": "string"
+          },
+          "lastAccessUserAgent": {
+            "type": "string"
+          }
+        }
+      },
+      "type": "array"
+    },
+    "favoriteProjects": {
+      "description": "project",
+      "items": {
+        "additionalProperties": true,
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "aliases": {
+            "description": "alias",
+            "items": {},
+            "type": "array"
+          },
+          "key": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "archived": {
+            "type": "boolean"
+          },
+          "description": {
+            "type": "string"
+          },
+          "creationTime": {
+            "description": "Date and time in the format of a long number",
+            "type": "integer"
+          },
+          "iconUrl": {
+            "type": "string"
+          },
+          "icon": {
+            "type": "string"
+          },
+          "defaultIcon": {
+            "type": "boolean"
+          },
+          "resources": {
+            "description": "resource",
+            "items": {},
+            "type": "array"
+          },
+          "projectRoles": {
+            "description": "projectRole",
+            "items": {},
+            "type": "array"
+          },
+          "transitiveProjectRoles": {
+            "description": "transitiveProjectRole",
+            "items": {},
+            "type": "array"
+          },
+          "myFavorite": {
+            "type": "boolean"
+          },
+          "team": {
+            "additionalProperties": true,
+            "properties": {},
+            "type": "object"
+          },
+          "owner": {
+            "additionalProperties": true,
+            "properties": {},
+            "type": "object"
+          },
+          "global": {
+            "type": "boolean"
+          },
+          "dashboard": {
+            "additionalProperties": true,
+            "properties": {},
+            "type": "object"
+          },
+          "organization": {
+            "additionalProperties": true,
+            "properties": {},
+            "type": "object"
+          },
+          "projectType": {
+            "additionalProperties": true,
+            "properties": {},
+            "type": "object"
+          }
+        }
+      },
+      "type": "array"
+    },
+    "endUserAgreementConsent": {
+      "additionalProperties": true,
+      "properties": {
+        "accepted": {
+          "type": "boolean"
+        },
+        "majorVersion": {
+          "type": "integer"
+        },
+        "minorVersion": {
+          "type": "integer"
+        },
+        "time": {
+          "description": "Date and time in the format of a long number",
+          "type": "integer"
+        },
+        "revocationTime": {
+          "description": "Date and time in the format of a long number",
+          "type": "integer"
+        },
+        "address": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "eraseTimestamp": {
+      "description": "Date and time in the format of a long number",
+      "type": "integer"
+    },
+    "twoFactorAuthentication": {
+      "additionalProperties": true,
+      "properties": {
+        "enabled": {
+          "type": "boolean"
+        },
+        "secretKey": {
+          "description": "from twoFactorAuthenticationSecret",
+          "type": "string"
+        },
+        "qrCodeUri": {
+          "description": "from twoFactorAuthenticationSecret",
+          "type": "string"
+        },
+        "scratchCodes": {
+          "description": "from twoFactorAuthenticationSecret",
+          "items": {},
+          "type": "array"
+        },
+        "failedAttemptsCounter": {
+          "description": "from twoFactorAuthenticationSecret",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "requiredTwoFactorAuthentication": {
+      "type": "boolean"
+    },
+    "pendingTwoFactorAuthentication": {
+      "additionalProperties": true,
+      "properties": {
+        "secretKey": {
+          "type": "string"
+        },
+        "qrCodeUri": {
+          "type": "string"
+        },
+        "scratchCodes": {
+          "items": {},
+          "type": "array"
+        },
+        "failedAttemptsCounter": {
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "webauthnDevice": {
+      "additionalProperties": true,
+      "properties": {
+        "enabled": {
+          "type": "boolean"
+        },
+        "name": {
+          "type": "string"
+        },
+        "vendor": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        },
+        "iconUrl": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "userType": {
+      "additionalProperties": true,
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "id": {
+      "description": "from authorityHolder",
+      "type": "string"
+    },
+    "aliases": {
+      "description": "alias from authorityHolder",
+      "items": {
+        "additionalProperties": true,
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "action": {
+            "type": "string"
+          }
+        }
+      },
+      "type": "array"
+    },
+    "name": {
+      "description": "from authorityHolder",
+      "type": "string"
+    },
+    "projectRoles": {
+      "description": "projectRole from authorityHolder",
+      "items": {
+        "additionalProperties": true,
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "aliases": {
+            "items": {},
+            "type": "array"
+          },
+          "role": {
+            "additionalProperties": true,
+            "properties": {}
+          },
+          "project": {
+            "additionalProperties": true,
+            "properties": {}
+          },
+          "owner": {
+            "additionalProperties": true,
+            "properties": {}
+          },
+          "teamMember": {
+            "type": "boolean"
+          }
+        }
+      },
+      "type": "array"
+    },
+    "transitiveProjectRoles": {
+      "description": "projectRole from authorityHolder",
+      "items": {
+        "additionalProperties": true,
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "aliases": {
+            "items": {},
+            "type": "array"
+          }, 
+          "role": {
+            "additionalProperties": true,
+            "properties": {},
+            "type": "object"
+          }, 
+          "project": {
+            "additionalProperties": true,
+            "properties": {},
+            "type": "object"
+          }, 
+          "owner": {
+            "additionalProperties": true,
+            "properties": {},
+            "type": "object"
+          },
+          "teamMember": {
+            "type": "boolean"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "sourcedProjectRoles": {
+      "description": "sourceProjectRole for authorityHolder",
+      "items": {
+        "additionalProperties": true,
+        "properties": {
+          "sources": {
+            "description": "from projectRole",
+            "items": {},
+            "type": "array"
+          },
+          "id": {
+            "description": "from projectRole",
+            "type": "string"
+          },
+          "aliases": {
+            "description": "from projectRole",
+            "items": {},
+            "type": "array"
+          },
+          "role": {
+            "description": "from projectRole",
+            "additionalProperties": true,
+            "properties": {},
+            "type": "object"
+          },
+          "project": {
+            "description": "from projectRole",
+            "additionalProperties": true,
+            "properties": {},
+            "type": "object"
+          },
+          "owner": {
+            "description": "from projectRole",
+            "additionalProperties": true,
+            "properties": {},
+            "type": "object"
+          },
+          "teamMember": {
+            "description": "from projectRole",
+            "type": "boolean"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "organizationRoles": {
+      "description": "",
+      "items": {},
+      "type": "array"
+    },
+    "transitiveOrganizationRoles": {
+      "description": "",
+      "items": {},
+      "type": "array"
+    },
+    "sourcedOrganizationRoles": {
+      "description": "",
+      "items": {},
+      "type": "array"
+    }
+  },
+  "title": "Pipe sink entity type: xxxxxx-users-collect",
+  "type": "object"
+}

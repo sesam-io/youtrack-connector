@@ -1,0 +1,138 @@
+{
+  "$id": "/api/pipes/xxxxxx-workitems-collect/entity-types/sink",
+  "$schema": "http://json-schema.org/schema#",
+  "additionalProperties": true,
+  "properties": {
+    "$last_modified": {
+      "subtype": "nanoseconds",
+      "type": "string"
+    },
+    "$type": {
+      "type": "string"
+    },
+    "attributes": {
+      "items": {
+        "additionalProperties": true,
+        "properties": {
+          "$type": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          },
+          "value": {
+            "additionalProperties": true,
+            "properties": {
+              "$type": {
+                "type": "string"
+              },
+              "id": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "author": {
+      "additionalProperties": true,
+      "properties": {
+        "$type": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "created": {
+      "type": "integer"
+    },
+    "creator": {
+      "additionalProperties": true,
+      "properties": {
+        "$type": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "date": {
+      "type": "integer"
+    },
+    "duration": {
+      "additionalProperties": true,
+      "properties": {
+        "$type": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "minutes": {
+          "type": "integer"
+        },
+        "presentation": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "id": {
+      "type": "string"
+    },
+    "issue": {
+      "additionalProperties": true,
+      "properties": {
+        "$type": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "text": {
+      "type": "string"
+    },
+    "type": {
+      "anyOf": [
+        {
+          "additionalProperties": true,
+          "properties": {
+            "$type": {
+              "type": "string"
+            },
+            "id": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "updated": {
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    }
+  },
+  "title": "Pipe sink entity type: xxxxxx-workitems-collect",
+  "type": "object"
+}

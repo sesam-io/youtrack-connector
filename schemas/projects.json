@@ -1,0 +1,8 @@
+{
+  "$id": "/api/pipes/xxxxxx-projects-collect/entity-types/sink",
+  "$schema": "http://json-schema.org/schema#",
+  "additionalProperties": true,
+  "properties": {},
+  "title": "Pipe sink entity type: xxxxxx-projects-collect",
+  "type": "object"
+}

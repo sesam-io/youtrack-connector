@@ -1,0 +1,529 @@
+{
+  "$id": "/api/pipes/xxxxxx-issues-collect/entity-types/sink",
+  "$schema": "http://json-schema.org/schema#",
+  "additionalProperties": true,
+  "properties": {
+    "$last_modified": {
+      "subtype": "nanoseconds",
+      "type": "string"
+    },
+    "$type": {
+      "type": "string"
+    },
+    "attachments": {
+      "items": {
+        "additionalProperties": true,
+        "properties": {
+          "$type": {
+            "type": "string"
+          },
+          "author": {
+            "additionalProperties": true,
+            "properties": {
+              "$type": {
+                "type": "string"
+              },
+              "email": {
+                "type": "string"
+              },
+              "id": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "base64Content": {
+            "type": "string"
+          },
+          "charset": {
+            "type": "null"
+          },
+          "comment": {
+            "type": "null"
+          },
+          "created": {
+            "type": "integer"
+          },
+          "draft": {
+            "type": "boolean"
+          },
+          "extension": {
+            "type": "null"
+          },
+          "id": {
+            "type": "string"
+          },
+          "issue": {
+            "additionalProperties": true,
+            "properties": {
+              "$type": {
+                "type": "string"
+              },
+              "id": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "metaData": {
+            "type": "string"
+          },
+          "mimeType": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "removed": {
+            "type": "boolean"
+          },
+          "size": {
+            "type": "integer"
+          },
+          "thumbnailURL": {
+            "type": "string"
+          },
+          "updated": {
+            "type": "integer"
+          },
+          "url": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "comments": {
+      "items": {
+        "additionalProperties": true,
+        "properties": {
+          "$type": {
+            "type": "string"
+          },
+          "author": {
+            "additionalProperties": true,
+            "properties": {
+              "$type": {
+                "type": "string"
+              },
+              "email": {
+                "type": "string"
+              },
+              "id": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "created": {
+            "type": "integer"
+          },
+          "deleted": {
+            "type": "boolean"
+          },
+          "id": {
+            "type": "string"
+          },
+          "text": {
+            "type": "string"
+          },
+          "textPreview": {
+            "type": "string"
+          },
+          "updated": {
+            "type": "null"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "commentsCount": {
+      "type": "integer"
+    },
+    "created": {
+      "type": "integer"
+    },
+    "customFields": {
+      "items": {
+        "additionalProperties": true,
+        "properties": {
+          "$type": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "projectCustomField": {
+            "additionalProperties": true,
+            "properties": {
+              "$type": {
+                "type": "string"
+              },
+              "id": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "value": {
+            "anyOf": [
+              {
+                "additionalProperties": true,
+                "properties": {
+                  "$type": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              },
+              {
+                "items": {
+                  "anyOf": []
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "description": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "string"
+        }
+      ]
+    },
+    "draftOwner": {
+      "type": "null"
+    },
+    "externalIssue": {
+      "type": "null"
+    },
+    "id": {
+      "type": "string"
+    },
+    "idReadable": {
+      "type": "string"
+    },
+    "isDraft": {
+      "type": "boolean"
+    },
+    "links": {
+      "items": {
+        "additionalProperties": true,
+        "properties": {
+          "$type": {
+            "type": "string"
+          },
+          "direction": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          },
+          "linkType": {
+            "additionalProperties": true,
+            "properties": {
+              "$type": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "trimmedIssues": {
+            "items": {
+              "additionalProperties": true,
+              "properties": {
+                "$type": {
+                  "type": "string"
+                },
+                "id": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "numberInProject": {
+      "type": "integer"
+    },
+    "parent": {
+      "additionalProperties": true,
+      "properties": {
+        "$type": {
+          "type": "string"
+        },
+        "direction": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "linkType": {
+          "additionalProperties": true,
+          "properties": {
+            "$type": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "trimmedIssues": {
+          "items": {
+            "additionalProperties": true,
+            "properties": {
+              "$type": {
+                "type": "string"
+              },
+              "id": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "project": {
+      "additionalProperties": true,
+      "properties": {
+        "$type": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "reporter": {
+      "additionalProperties": true,
+      "properties": {
+        "$type": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "resolved": {
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "subtasks": {
+      "additionalProperties": true,
+      "properties": {
+        "$type": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "trimmedIssues": {
+          "items": {
+            "additionalProperties": true,
+            "properties": {
+              "$type": {
+                "type": "string"
+              },
+              "id": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "summary": {
+      "type": "string"
+    },
+    "tags": {
+      "items": {
+        "additionalProperties": true,
+        "properties": {
+          "$type": {
+            "type": "string"
+          },
+          "color": {
+            "additionalProperties": true,
+            "properties": {
+              "$type": {
+                "type": "string"
+              },
+              "background": {
+                "type": "string"
+              },
+              "foreground": {
+                "type": "string"
+              },
+              "id": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "id": {
+            "type": "string"
+          },
+          "issues": {
+            "items": {
+              "additionalProperties": true,
+              "properties": {
+                "$type": {
+                  "type": "string"
+                },
+                "id": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "name": {
+            "type": "string"
+          },
+          "owner": {
+            "additionalProperties": true,
+            "properties": {
+              "$type": {
+                "type": "string"
+              },
+              "email": {
+                "type": "string"
+              },
+              "id": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "untagOnResolve": {
+            "type": "boolean"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "updated": {
+      "type": "integer"
+    },
+    "updater": {
+      "additionalProperties": true,
+      "properties": {
+        "$type": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "voters": {
+      "additionalProperties": true,
+      "properties": {
+        "$type": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "votes": {
+      "type": "integer"
+    },
+    "watchers": {
+      "additionalProperties": true,
+      "properties": {
+        "$type": {
+          "type": "string"
+        },
+        "hasStar": {
+          "type": "boolean"
+        },
+        "id": {
+          "type": "string"
+        },
+        "issueWatchers": {
+          "items": {
+            "additionalProperties": true,
+            "properties": {
+              "$type": {
+                "type": "string"
+              },
+              "id": {
+                "type": "string"
+              },
+              "user": {
+                "additionalProperties": true,
+                "properties": {
+                  "$type": {
+                    "type": "string"
+                  },
+                  "email": {
+                    "type": "string"
+                  },
+                  "id": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "wikifiedDescription": {
+      "type": "string"
+    }
+  },
+  "title": "Pipe sink entity type: xxxxxx-issues-collect",
+  "type": "object"
+}

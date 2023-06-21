@@ -1,0 +1,15 @@
+{
+  "$id": "/api/pipes/xxxxxx-issues-collect/entity-types/sink",
+  "$schema": "http://json-schema.org/schema#",
+  "additionalProperties": true,
+  "properties": {
+    "draftOwner": {
+      "type": null
+    },
+    "externalIssue": {
+      "type": null
+    }
+  },
+  "title": "Pipe sink entity type: xxxxxx-issues-collect",
+  "type": "object"
+}

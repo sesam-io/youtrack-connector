@@ -3,9 +3,6 @@
   "$schema": "http://json-schema.org/schema#",
   "additionalProperties": true,
   "properties": {
-    "$origin": {
-      "type": "string"
-    },
     "allUsers": {
       "description": "True if this group contains all users, otherwise false. Read-only.",
       "type": "boolean"

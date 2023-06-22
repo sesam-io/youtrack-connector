@@ -11,22 +11,20 @@
       "type": "string"
     },
     "attributes": {
+      "description": "The list of attributes of the work item. Read-only.",
       "items": {
         "additionalProperties": true,
         "properties": {
-          "$type": {
-            "type": "string"
-          },
           "id": {
+            "description": "The ID of the work item attribute. Read-only.",
             "type": "string"
           },
           "value": {
             "additionalProperties": true,
+            "description": "The value of the work item attribute. Can be null.",
             "properties": {
-              "$type": {
-                "type": "string"
-              },
               "id": {
+                "description": "The ID of the value of a work item attribute. Read-only.",
                 "type": "string"
               }
             },
@@ -39,98 +37,86 @@
     },
     "author": {
       "additionalProperties": true,
+      "description": "The user to whom the work is attributed in the work item. Can be null.",
       "properties": {
-        "$type": {
-          "type": "string"
-        },
         "id": {
+          "description": "The ID of the user. Read-only.",
           "type": "string"
         }
       },
       "type": "object"
     },
     "created": {
+      "description": "The date when the work item was created. Can be null.",
       "type": "integer"
     },
     "creator": {
       "additionalProperties": true,
+      "description": "The user who added the work item to the issue. Read-only. Can be null.",
       "properties": {
-        "$type": {
-          "type": "string"
-        },
         "id": {
+          "description": "The ID of the user. Read-only.",
           "type": "string"
         }
       },
       "type": "object"
     },
     "date": {
+      "description": "The date and time that is assigned to the work item. Stored as a Unix timestamp in UTC. The time part is set to midnight for the current date.",
       "type": "integer"
     },
     "duration": {
       "additionalProperties": true,
+      "description": "The duration of the work item.",
       "properties": {
-        "$type": {
-          "type": "string"
-        },
         "id": {
+          "description": "The ID of the duration value. Read-only.",
           "type": "string"
         },
         "minutes": {
+          "description": "Number of minutes in the time interval. Read-only.",
           "type": "integer"
         },
         "presentation": {
+          "description": "Presentation of the time interval according to the user settings of duration format and user locale. Read-only.",
           "type": "string"
         }
       },
       "type": "object"
     },
     "id": {
+      "description": "The ID of the issue work item. Read-only.",
       "type": "string"
     },
     "issue": {
       "additionalProperties": true,
+      "description": "Stores attributes of the issue to which the work item is attached. Read-only.",
       "properties": {
-        "$type": {
-          "type": "string"
-        },
         "id": {
+          "description": "The database ID of the issue. Read-only.",
           "type": "string"
         }
       },
       "type": "object"
     },
     "text": {
+      "description": "The work item description. Can be null.",
       "type": "string"
     },
     "type": {
-      "anyOf": [
-        {
-          "additionalProperties": true,
-          "properties": {
-            "$type": {
-              "type": "string"
-            },
-            "id": {
-              "type": "string"
-            }
-          },
-          "type": "object"
-        },
-        {
-          "type": "null"
+      "additionalProperties": true,
+      "description": "The work item type. Can be null.",
+      "properties": {
+        "id": {
+          "description": "The ID of the work item type. Read-only.",
+          "type": "string"
         }
-      ]
+      },
+      "type": "object"
     },
     "updated": {
-      "anyOf": [
-        {
-          "type": "integer"
-        },
-        {
-          "type": "null"
-        }
-      ]
+      "description": "The date when the work item was last updated. Can be null.",
+      "type": "integer"
     }
   },
   "title": "Pipe sink entity type: xxxxxx-workitems-collect",

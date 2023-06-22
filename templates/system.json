@@ -16,7 +16,7 @@
       "id_expression": "{{ id }}",
       "method": "GET",
       "params": {
-        "fields": "id,attachments(id),comments(id),created,description,externalIssue(id),isDraft,links(id),parent(id),project(id),resolved,subtasks(id),owner(id),updated"
+        "fields": "id,attachments(id),comments(id),created,description,externalIssue(id),isDraft,links(id),parent(id),project(id),resolved,subtasks(id),reporter(id),updated"
       },
       "url": "api/issues"
     },
@@ -24,7 +24,7 @@
       "id_expression": "{{ id }}",
       "method": "GET",
       "params": {
-        "fields": "id,attachments(id),comments(id),created,description,externalIssue(id),isDraft,links(id),parent(id),project(id),resolved,subtasks(id),owner(id),updated"
+        "fields": "id,attachments(id),comments(id),created,description,externalIssue(id),isDraft,links(id),parent(id),project(id),resolved,subtasks(id),reporter(id),updated"
       },
       "url": "api/issues/{{ id }}"
     },

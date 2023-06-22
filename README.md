@@ -1,12 +1,14 @@
 # youtrack-connector
 
 
-## About users
+## About usersyoutrack and users
 
-The "users" datatype is a specialcase: The main youtrack api only gives a readonly view of 
+The "usersyoutrack" and "users" datatypes are specialcases: The main youtrack api only gives a readonly view of 
 YouTrack's profile of the user account (ref: https://www.jetbrains.com/help/youtrack/devportal/resource-api-users.html).
+We collect these as the "usersyoutrack" datatype.
 
-The "real" user data can be (retrieved and modified) via the "Hub" api (ref: https://www.jetbrains.com/help/youtrack/devportal/HUB-REST-API_Users.html).
+The "real" user data can be retrieved and modified via the "Hub" api (ref: https://www.jetbrains.com/help/youtrack/devportal/HUB-REST-API_Users.html).
+We collect these as the "users" datatype.
 
 The user profile from the Youtrack api has two ids:
 
@@ -55,6 +57,25 @@ We collect the Hub users in the *-users-collect pipe. This is where we get all t
   "type": "user"
 }
 ```
+
+
+## About groups and usergroups
+
+The "groups" and "usergroups" datatypes are similar to the "usersyoutrack" and "users" datatypes.
+
+The main youtrack api only gives a readonly view of the user groups (ref: https://www.jetbrains.com/help/youtrack/devportal/resource-api-groups.html).
+
+The "real" user group data can be retrieved and modified via the "Hub" api (ref: https://www.jetbrains.com/help/youtrack/devportal/HUB-REST-API_User-Groups.html).
+
+The "group" from the Youtrack api has two ids:
+
+  * A "id" field that looks something like this: "1-6".
+  * A "ringId" field that looks something like "f76f0560-7483-47cf-a82f-5dc1f46ed14c" and that refers to the "id" field
+    of the "Hub" user group.
+
+The reason we need to collect the "groups" is that it is this id that that the other datatypes in Youtrack refer to.
+"groups" is a readonly datatype, so is has no share-pipe.
+
 
 ### Testing APIs with Postman
 Choose the authorization method to be the `Bearer Token` and use your Youtrack api key as for the token. 

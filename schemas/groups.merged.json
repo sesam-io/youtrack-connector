@@ -1,0 +1,24 @@
+{
+  "$id": "/api/pipes/xxxxxx-groups-collect/entity-types/sink",
+  "$schema": "http://json-schema.org/schema#",
+  "additionalProperties": true,
+  "properties": {
+    "$type": {
+      "type": "string"
+    },
+    "id": {
+      "description": "The ID of the user group. This is the id that the other datatypes from the main youtrack api refer to.",
+      "type": "string"
+    },
+    "name": {
+      "description": "The name of the group. (Only included to make debugging easier; the name is also present in the corresponding 'usergroups' entity",
+      "type": "string"
+    },
+    "ringId": {
+      "description": "ID of the corresponding 'usergroup' entity.",
+      "type": "string"
+    }
+  },
+  "title": "Pipe sink entity type: xxxxxx-groups-collect",
+  "type": "object"
+}

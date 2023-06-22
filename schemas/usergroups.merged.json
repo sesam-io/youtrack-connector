@@ -1,0 +1,158 @@
+{
+  "$id": "/api/pipes/xxxxxx-usergroups-collect/entity-types/sink",
+  "$schema": "http://json-schema.org/schema#",
+  "additionalProperties": true,
+  "properties": {
+    "$origin": {
+      "type": "string"
+    },
+    "allUsers": {
+      "description": "True if this group contains all users, otherwise false. Read-only.",
+      "type": "boolean"
+    },
+    "autoJoin": {
+      "description": "Knutj-comment: Didn't find any docs on this field",
+      "type": "boolean"
+    },
+    "iconUrl": {
+      "description": "The URL of the group icon.",
+      "type": "string"
+    },
+    "id": {
+      "description": "The ID of the user group",
+      "type": "string"
+    },
+    "immutable": {
+      "description": "Knutj-comment: Didn't find any docs on this field",
+      "type": "boolean"
+    },
+    "name": {
+      "description": "The name of the group.",
+      "type": "string"
+    },
+    "ownUsers": {
+      "items": {
+        "additionalProperties": true,
+        "properties": {
+          "id": {
+            "description": "The id of a user that is a member of this group",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "parent": {
+      "additionalProperties": true,
+      "properties": {
+        "id": {
+          "description": "The id of the parent group of this usergroup",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "parentsRequireTwoFactorAuthentication": {
+      "description": "Knutj-comment: Didn't find any docs on this field",
+      "type": "boolean"
+    },
+    "project": {
+      "additionalProperties": true,
+      "properties": {
+        "id": {
+          "description": "The id of the project that has this group set as a team. Returns null, if there is no such project. ",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "projectRoles": {
+      "items": {
+        "additionalProperties": true,
+        "properties": {
+          "id": {
+            "description": "The id of a project role",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "registeredUsers": {
+      "description": "Knutj-comment: Didn't find any docs on this field",
+      "type": "boolean"
+    },
+    "removable": {
+      "description": "Knutj-comment: Didn't find any docs on this field",
+      "type": "boolean"
+    },
+    "requiredTwoFactorAuthentication": {
+      "description": "Knutj-comment: Didn't find any docs on this field",
+      "type": "boolean"
+    },
+    "sourcedProjectRoles": {
+      "items": {
+        "additionalProperties": true,
+        "properties": {
+          "id": {
+            "description": "The id of a project role",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "subgroups": {
+      "items": {
+        "additionalProperties": true,
+        "properties": {
+          "id": {
+            "description": "The id of a subsgroup of this usergroup",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "transitiveProjectRoles": {
+      "items": {
+        "additionalProperties": true,
+        "properties": {
+          "id": {
+            "description": "The id of a project role",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "type": {
+      "description": "Knutj-comment: I didn't find any docs for this field, but it seems to always have the value 'userGroup'.",
+      "type": "string"
+    },
+    "userCount": {
+      "description": "The number of users in the group. Read-only",
+      "type": "integer"
+    },
+    "users": {
+      "items": {
+        "additionalProperties": true,
+        "properties": {
+          "id": {
+            "description": "Knutj-comment: I didn't find any docs for this field, but this seems to be the users that are in this group or in any of its subgroups",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "title": "Pipe sink entity type: xxxxxx-usergroups-collect",
+  "type": "object"
+}

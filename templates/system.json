@@ -16,7 +16,7 @@
       "id_expression": "{{ id }}",
       "method": "GET",
       "params": {
-        "fields": "id,attachments(id,name,author(id,email),created,updated,size,extension,charset,mimeType,metaData,draft,removed,base64Content,url,issue(id),comment(id,text,textPreview,created,updated,author(id,email),deleted),thumbnailURL),comments(id,text,textPreview,created,updated,author(id,email),deleted),commentsCount,created,customFields(id,name,projectCustomField(id),value),description,draftOwner(id,email),externalIssue(id,name,url,key),idReadable,isDraft,links(id,direction,linkType,trimmedIssues(id)),numberInProject,parent(id,direction,linkType,trimmedIssues(id)),project(id),reporter(id,email),resolved,subtasks(id,trimmedIssues(id)),summary,tags(id,issues(id),color(id,background,foreground),untagOnResolve,owner(id,email),name),updated,updater(id,email),voters(id),votes,watchers(id,hasStar,issueWatchers(id,user(id,email))),wikifiedDescription"
+        "fields": "id,attachments(id),comments(id),created,description,externalIssue(id),isDraft,links(id),parent(id),project(id),resolved,subtasks(id),owner(id),updated"
       },
       "url": "api/issues"
     },
@@ -24,7 +24,7 @@
       "id_expression": "{{ id }}",
       "method": "GET",
       "params": {
-        "fields": "id,attachments(id,name,author(id,email),created,updated,size,extension,charset,mimeType,metaData,draft,removed,base64Content,url,issue(id),comment(id,text,textPreview,created,updated,author(id,email),deleted),thumbnailURL),comments(id,text,textPreview,created,updated,author(id,email),deleted),commentsCount,created,customFields(id,name,projectCustomField(id),value),description,draftOwner(id,email),externalIssue(id,name,url,key),idReadable,isDraft,links(id,direction,linkType,trimmedIssues(id)),numberInProject,parent(id,direction,linkType,trimmedIssues(id)),project(id),reporter(id,email),resolved,subtasks(id,trimmedIssues(id)),summary,tags(id,issues(id),color(id,background,foreground),untagOnResolve,owner(id,email),name),updated,updater(id,email),voters(id),votes,watchers(id,hasStar,issueWatchers(id,user(id,email))),wikifiedDescription"
+        "fields": "id,attachments(id),comments(id),created,description,externalIssue(id),isDraft,links(id),parent(id),project(id),resolved,subtasks(id),owner(id),updated"
       },
       "url": "api/issues/{{ id }}"
     },

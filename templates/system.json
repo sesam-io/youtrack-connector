@@ -4,6 +4,20 @@
     "Authorization": "Bearer $SECRET(api_key)"
   },
   "operations": {
+    "groups-list": {
+      "id_expression": "{{ id }}",
+      "method": "GET",
+      "next_page_link": "{{url}}",
+      "next_page_termination_strategy": [
+        "empty-result"
+      ],
+      "params": {
+        "$skip": "{% if is_first_page  %}0{% else %}{{previous_params['$top'] * page}}{% endif %}",
+        "$top": 50,
+        "fields": "id,ringId,name"
+      },
+      "url": "api/groups"
+    },
     "issues-delete": {
       "method": "DELETE",
       "url": "api/issues/{{ id }}"
@@ -50,7 +64,7 @@
       "params": {
         "$skip": "{% if is_first_page  %}0{% else %}{{previous_params['$top'] * page}}{% endif %}",
         "$top": 42,
-        "fields": "id,name,shortName"
+        "fields": "id,name,shortName,archived,createdBy(id),description,iconUrl,leader(id),team(id),template"
       },
       "url": "api/admin/projects"
     },
@@ -58,13 +72,48 @@
       "id_expression": "{{ id }}",
       "method": "GET",
       "params": {
-        "fields": "id,name,shortName"
+        "fields": "id,name,shortName,archived,createdBy(id),description,iconUrl,leader(id),team(id),template"
       },
       "url": "api/admin/projects/{{ id }}"
     },
     "projects-update": {
       "method": "POST",
       "url": "api/admin/projects/{{ id }}"
+    },
+    "usergroups-delete": {
+      "method": "DELETE",
+      "url": "hub/rest/usergroups/{{ id }}"
+    },
+    "usergroups-insert": {
+      "method": "POST",
+      "url": "hub/rest/usergroups"
+    },
+    "usergroups-list": {
+      "id_expression": "{{ id }}",
+      "method": "GET",
+      "next_page_link": "{{url}}",
+      "next_page_termination_strategy": [
+        "empty-result"
+      ],
+      "params": {
+        "$skip": "{% if is_first_page  %}0{% else %}{{previous_params['$top'] * page}}{% endif %}",
+        "$top": 50,
+        "fields": "description,iconUrl,autoJoin,autoJoinDomain,requiredTwoFactorAuthentication,parentsRequireTwoFactorAuthentication,users(id),ownUsers(id),userCount,parent(id),subgroups(id),teams(id),organizations(id),project(id),allUsers,registeredUsers,implicit,queriedSingleton,removable,immutable,id,name,projectRoles(id),transitiveProjectRoles(id),sourcedProjectRoles(id),organizationRoles(id),transitiveOrganizationRoles(id),sourcedOrganizationRoles(id)"
+      },
+      "payload_property": "usergroups",
+      "url": "hub/rest/usergroups"
+    },
+    "usergroups-lookup": {
+      "id_expression": "{{ id }}",
+      "method": "GET",
+      "params": {
+        "fields": "description,iconUrl,autoJoin,autoJoinDomain,requiredTwoFactorAuthentication,parentsRequireTwoFactorAuthentication,users(id),ownUsers(id),userCount,parent(id),subgroups(id),teams(id),organizations(id),project(id),allUsers,registeredUsers,implicit,queriedSingleton,removable,immutable,id,name,projectRoles(id),transitiveProjectRoles(id),sourcedProjectRoles(id),organizationRoles(id),transitiveOrganizationRoles(id),sourcedOrganizationRoles(id)"
+      },
+      "url": "hub/rest/usergroups/{{ id }}"
+    },
+    "usergroups-update": {
+      "method": "POST",
+      "url": "hub/rest/usergroups/{{ id }}"
     },
     "users-delete": {
       "method": "DELETE",

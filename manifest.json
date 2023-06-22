@@ -4,17 +4,23 @@
   },
   "auth": "api_key",
   "datatypes": {
+    "groups": {
+      "template": "templates/groups.json"
+    },
     "issues": {
       "template": "templates/issues.json"
     },
     "projects": {
       "template": "templates/projects.json"
     },
+    "usergroups": {
+      "template": "templates/projects.json"
+    },
     "users": {
       "template": "templates/projects.json"
     },
     "usersyoutrack": {
-      "template": "templates/usersyoutrack.json"
+      "template": "templates/groups.json"
     },
     "workitems": {
       "template": "templates/workitems.json"

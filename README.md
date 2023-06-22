@@ -99,3 +99,5 @@ All of the APIs above accept a set of `fields` that will return a selective arra
 `$skip` and `$top` URL parameters are used for pagination. 
 
 The API for the list of issues have an `updated` field which is in the format of long and can potentially be used for continuation support though we still have not figured out a solid way to do so. Youtrack seems not to have a since property to indicate changes easily and uses a `query` URL parameter to fetch records. More research needs to be done on this subject. 
+
+By default, YouTrack returns only the $type and id attributes of the requested entities. To get more information you should provide a list of returned entity attributes in the fields parameter of the request. The $type and id attributes will appear in the response regardless of whether you specify it explicitly or not.

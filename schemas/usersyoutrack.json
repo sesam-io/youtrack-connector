@@ -1,0 +1,21 @@
+{
+  "$id": "/api/pipes/xxxxxx-usersyoutrack-collect/entity-types/sink",
+  "$schema": "http://json-schema.org/schema#",
+  "additionalProperties": true,
+  "properties": {
+    "id": {
+      "description": "The ID of the user. Read-only.",
+      "type": "string"
+    }, 
+    "login": {
+      "description": "The login of the user. Read-only.",
+      "type": "string"
+    },
+    "ringId": {
+      "description": "ID of the user in Hub. You can use this ID for operations in Hub, and for matching users between YouTrack and Hub. Read-only. Can be null.",
+      "type": "string"
+    }
+  },
+  "title": "Pipe sink entity type: xxxxxx-usersyoutrack-collect",
+  "type": "object"
+}

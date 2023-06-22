@@ -1,0 +1,137 @@
+{
+  "$id": "/api/pipes/xxxxxx-issues-collect/entity-types/sink",
+  "$schema": "http://json-schema.org/schema#",
+  "additionalProperties": true,
+  "properties": {
+    "$last_modified": {
+      "subtype": "nanoseconds",
+      "type": "string"
+    },
+    "$type": {
+      "type": "string"
+    },
+    "attachments": {
+      "description": "The list of attachments in the issue.",
+      "items": {
+        "additionalProperties": true,
+        "properties": {
+          "id": {
+            "description": "The ID of the attachment. Read-only.",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "comments": {
+      "description": "A list of comments for the issue.",
+      "items": {
+        "additionalProperties": true,
+        "properties": {
+          "id": {
+            "description": "The ID of the issue comment.",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "created": {
+      "description": "The timestamp of the moment when the issue was created. Read-only. Can be null.",
+      "type": "integer"
+    },
+    "description": {
+      "description": "The issue description. Can be null.",
+      "type": "string"
+    },
+    "externalIssue": {
+      "additionalProperties": true,
+      "description": "Reference to the issue or similar object in an originating third-party system. Read-only. Can be null.",
+      "properties": {
+        "id": {
+          "description": "The ID of the external issue. Read-only.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "id": {
+      "description": "The database ID of the issue. Read-only.",
+      "type": "string"
+    },
+    "isDraft": {
+      "description": "true if this issue is a draft, false if it is reported. Read-only.",
+      "type": "boolean"
+    },
+    "links": {
+      "description": "Issue links (for example, `relates to`, `parent for`, and so on). Read-only.",
+      "items": {
+        "additionalProperties": true,
+        "properties": {
+          "id": {
+            "description": "The ID of the issue link. Read-only.",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "parent": {
+      "additionalProperties": true,
+      "description": "The parent issue for the current one. If the issue is not a sub-task of any issue, then null. Read-only.",
+      "properties": {
+        "id": {
+          "description": "The ID of the issue link. Read-only.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "project": {
+      "additionalProperties": true,
+      "description": "The project where the issue belongs. Can be null.",
+      "properties": {
+        "id": {
+          "description": "The ID of the project. Read-only.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "reporter": {
+      "additionalProperties": true,
+      "description": "The user who reported (created) the issue. Read-only. Can be null.",
+      "properties": {
+        "id": {
+          "description": "The ID of the user. Read-only.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "resolved": {
+      "description": "The timestamp of the moment when the issue was assigned a state that is considered to be resolved. null if the issue is still in an unresolved state. Read-only. Can be null.",
+      "type": "integer"
+    },
+    "subtasks": {
+      "additionalProperties": true,
+      "description": "The list of sub-tasks of the issue. Read-only.",
+      "properties": {
+        "id": {
+          "description": "The ID of the issue link. Read-only.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "updated": {
+      "description": "The timestamp of the last update of the issue. Read-only. Can be null.",
+      "type": "integer"
+    }
+  },
+  "title": "Pipe sink entity type: xxxxxx-issues-collect",
+  "type": "object"
+}

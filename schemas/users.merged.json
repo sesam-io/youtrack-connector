@@ -1,0 +1,104 @@
+{
+  "$id": "/api/pipes/xxxxxx-users-collect/entity-types/sink",
+  "$schema": "http://json-schema.org/schema#",
+  "additionalProperties": true,
+  "properties": {
+    "banned": {
+      "description": "A boolean value that indicates whether a user is banned or not.",
+      "type": "boolean"
+    },
+    "id": {
+      "description": "from authorityHolder",
+      "type": "string"
+    },
+    "login": {
+      "description": "The login username of the user",
+      "type": "string"
+    },
+    "name": {
+      "description": "from authorityHolder",
+      "type": "string"
+    },
+    "profile": {
+      "additionalProperties": true,
+      "description": "It contains profile information of the user.",
+      "properties": {
+        "avatar": {
+          "additionalProperties": true,
+          "description": "The user avatar data are provided in this entity.",
+          "properties": {
+            "type": {
+              "type": "string"
+            },
+            "url": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "email": {
+          "additionalProperties": true,
+          "description": "Includes user email address and whether it is verified or not.",
+          "properties": {
+            "email": {
+              "type": "string"
+            },
+            "type": {
+              "type": "string"
+            },
+            "verified": {
+              "type": "boolean"
+            }
+          },
+          "type": "object"
+        },
+        "locale": {
+          "additionalProperties": true,
+          "description": "Locale info of the user",
+          "properties": {
+            "language": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        }
+      },
+      "type": "object"
+    },
+    "teams": {
+      "description": "An array of project teams associated with the user.",
+      "items": {
+        "additionalProperties": true,
+        "properties": {
+          "id": {
+            "description": "The id of a project team.",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "type": {
+      "description": "The type of the current user.",
+      "type": "string"
+    },
+    "userType": {
+      "additionalProperties": true,
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "title": "Pipe sink entity type: xxxxxx-users-collect",
+  "type": "object"
+}

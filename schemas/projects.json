@@ -1,0 +1,68 @@
+{
+  "$id": "/api/pipes/xxxxxx-projects-collect/entity-types/sink",
+  "$schema": "http://json-schema.org/schema#",
+  "additionalProperties": true,
+  "properties": {
+    "archived": {
+      "type": "boolean",
+      "description": "If the project is currently archived, this property is true."
+    },
+    "createdBy": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The id of the user who created the project. Can be null."
+        }
+      }
+    },
+    "description": {
+      "type": "string",
+      "description": "The description of the project as shown on the project profile page. Can be null."
+    },
+    "iconUrl": {
+      "type": "string",
+      "description": "The URL of the icon of the project. Read-only. Can be null."
+    },
+    "id": {
+      "type": "string",
+      "description": "The ID of the project. Read-only."
+    },
+    "leader": {
+      "additionalProperties": true,
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The id of the user who is set as the project owner. Can be null."
+        }
+      },
+      "type": "object"
+    },
+    "name": {
+      "type": "string",
+      "description": "The name of the project. Can be null."
+    },
+    "shortName": {
+      "type": "string",
+      "description": "The ID of the project. This short name is also a prefix for an issue ID. Can be null."
+    },
+    "team": {
+      "additionalProperties": true,
+      "description": "",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The id of the user group representing all members of the project team. Read-only."
+        }
+      },
+      "type": "object"
+    },
+    "template": {
+      "type": "boolean",
+      "description": "If true, this project is a template."
+    }
+  },
+  "title": "Pipe sink entity type: xxxxxx-projects-collect",
+  "type": "object"
+}

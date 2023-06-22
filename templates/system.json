@@ -50,7 +50,7 @@
       "params": {
         "$skip": "{% if is_first_page  %}0{% else %}{{previous_params['$top'] * page}}{% endif %}",
         "$top": 42,
-        "fields": "id,name,shortName"
+        "fields": "id,name,shortName,archived,createdBy(id),description,iconUrl,leader(id),team(id),template"
       },
       "url": "api/admin/projects"
     },
@@ -58,7 +58,7 @@
       "id_expression": "{{ id }}",
       "method": "GET",
       "params": {
-        "fields": "id,name,shortName"
+        "fields": "id,name,shortName,archived,createdBy(id),description,iconUrl,leader(id),team(id),template"
       },
       "url": "api/admin/projects/{{ id }}"
     },

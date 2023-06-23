@@ -1,5 +1,7 @@
 # youtrack-connector
 
+## YouTrack wiki and access token
+https://github.com/datanav/sesam-talk-config/wiki/Connectors:Youtrack
 
 ## About usersyoutrack and users
 

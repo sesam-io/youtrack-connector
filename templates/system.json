@@ -8,9 +8,7 @@
       "id_expression": "{{ id }}",
       "method": "GET",
       "next_page_link": "{{url}}",
-      "next_page_termination_strategy": [
-        "empty-result"
-      ],
+      "next_page_termination_strategy": ["empty-result"],
       "params": {
         "$skip": "{% if is_first_page  %}0{% else %}{{previous_params['$top'] * page}}{% endif %}",
         "$top": 50,
@@ -30,9 +28,7 @@
       "id_expression": "{{ id }}",
       "method": "GET",
       "next_page_link": "{{url}}",
-      "next_page_termination_strategy": [
-        "empty-result"
-      ],
+      "next_page_termination_strategy": ["empty-result"],
       "params": {
         "$skip": "{% if is_first_page  %}0{% else %}{{previous_params['$top'] * page}}{% endif %}",
         "$top": 50,
@@ -93,9 +89,7 @@
       "id_expression": "{{ id }}",
       "method": "GET",
       "next_page_link": "{{url}}",
-      "next_page_termination_strategy": [
-        "empty-result"
-      ],
+      "next_page_termination_strategy": ["empty-result"],
       "params": {
         "$skip": "{% if is_first_page  %}0{% else %}{{previous_params['$top'] * page}}{% endif %}",
         "$top": 50,
@@ -128,9 +122,7 @@
       "id_expression": "{{ id }}",
       "method": "GET",
       "next_page_link": "{{url}}",
-      "next_page_termination_strategy": [
-        "empty-result"
-      ],
+      "next_page_termination_strategy": ["empty-result"],
       "params": {
         "$skip": "{% if is_first_page  %}0{% else %}{{previous_params['$top'] * page}}{% endif %}",
         "$top": 42,
@@ -162,9 +154,7 @@
       "id_expression": "{{ id }}",
       "method": "GET",
       "next_page_link": "{{url}}",
-      "next_page_termination_strategy": [
-        "empty-result"
-      ],
+      "next_page_termination_strategy": ["empty-result"],
       "params": {
         "$skip": "{% if is_first_page  %}0{% else %}{{previous_params['$top'] * page}}{% endif %}",
         "$top": 50,
@@ -197,9 +187,7 @@
       "id_expression": "{{ id }}",
       "method": "GET",
       "next_page_link": "{{url}}",
-      "next_page_termination_strategy": [
-        "empty-result"
-      ],
+      "next_page_termination_strategy": ["empty-result"],
       "params": {
         "$skip": "{% if is_first_page  %}0{% else %}{{previous_params['$top'] * page}}{% endif %}",
         "$top": 50,
@@ -224,9 +212,7 @@
       "id_expression": "{{ id }}",
       "method": "GET",
       "next_page_link": "{{url}}",
-      "next_page_termination_strategy": [
-        "empty-result"
-      ],
+      "next_page_termination_strategy": ["empty-result"],
       "params": {
         "$skip": "{% if is_first_page  %}0{% else %}{{previous_params['$top'] * page}}{% endif %}",
         "$top": 50,
@@ -238,15 +224,46 @@
       "id_expression": "{{ id }}",
       "method": "GET",
       "next_page_link": "{{url}}",
-      "next_page_termination_strategy": [
-        "empty-result"
-      ],
+      "next_page_termination_strategy": ["empty-result"],
       "params": {
         "$skip": "{% if is_first_page  %}0{% else %}{{previous_params['$top'] * page}}{% endif %}",
         "$top": 42,
         "fields": "id,author(id),creator(id),text,type(id),created,updated,duration(id,minutes,presentation),date,issue(id),attributes(id,value(id))"
       },
       "url": "api/workItems"
+    },
+    "roles-delete": {
+      "method": "DELETE",
+      "url": "hub/rest/roles/{{ id }}"
+    },
+    "roles-insert": {
+      "method": "POST",
+      "url": "hub/rest/roles"
+    },
+    "roles-list": {
+      "id_expression": "{{ id }}",
+      "method": "GET",
+      "next_page_link": "{{url}}",
+      "next_page_termination_strategy": ["empty-result"],
+      "params": {
+        "$skip": "{% if is_first_page  %}0{% else %}{{previous_params['$top'] * page}}{% endif %}",
+        "$top": 50,
+        "fields": "id,aliases,key,name,description,permissions,immutable"
+      },
+      "payload_property": "roles",
+      "url": "hub/rest/roles"
+    },
+    "roles-lookup": {
+      "id_expression": "{{ id }}",
+      "method": "GET",
+      "params": {
+        "fields": "id,aliases,key,name,description,permissions,immutable"
+      },
+      "url": "hub/rest/roles/{{ id }}"
+    },
+    "roles-update": {
+      "method": "POST",
+      "url": "hub/rest/roles/{{ id }}"
     }
   },
   "type": "system:rest",

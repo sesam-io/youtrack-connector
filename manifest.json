@@ -7,8 +7,14 @@
     "groups": {
       "template": "templates/groups.json"
     },
+    "hubprojects": {
+      "template": "templates/groups.json"
+    },
     "issues": {
       "template": "templates/issues.json"
+    },
+    "organizations": {
+      "template": "templates/projects.json"
     },
     "projects": {
       "template": "templates/projects.json"
@@ -26,6 +32,6 @@
       "template": "templates/workitems.json"
     }
   },
-  "system-template": "templates/system.json",
-  "system": "YouTrack"
+  "system": "YouTrack",
+  "system-template": "templates/system.json"
 }

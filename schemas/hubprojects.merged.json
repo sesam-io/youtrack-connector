@@ -1,0 +1,136 @@
+{
+  "$id": "/api/pipes/xxxxxx-hubprojects-collect/entity-types/sink",
+  "$schema": "http://json-schema.org/schema#",
+  "additionalProperties": true,
+  "properties": {
+    "archived": {
+      "description": "If the project is currently archived, this property is true.",
+      "type": "boolean"
+    },
+    "creationTime": {
+      "description": "Not documented, but it seems to be the creation time in milliseconds since the epoch",
+      "type": "integer"
+    },
+    "defaultIcon": {
+      "description": "Not documented",
+      "type": "boolean"
+    },
+    "description": {
+      "description": "A description of the project.",
+      "type": "string"
+    },
+    "global": {
+      "description": "Not documented",
+      "type": "boolean"
+    },
+    "icon": {
+      "description": "Not documented, but looks like a base64 encoded image that is used as the icon for this project in the GUI.",
+      "type": "string"
+    },
+    "iconUrl": {
+      "description": "Not documented, but looks like an url for downloading the icon image",
+      "type": "string"
+    },
+    "id": {
+      "description": "The id of this hubproject. This is the id that the 'ringId' attribute in the 'projects' datatype refer to.",
+      "type": "string"
+    },
+    "key": {
+      "description": "Not documented, but looks like it is the same as the 'shortName' property in the 'projects' datatype.",
+      "type": "string"
+    },
+    "myFavorite": {
+      "description": "Not documented.",
+      "type": "boolean"
+    },
+    "name": {
+      "description": "The name of this hubproject.",
+      "type": "string"
+    },
+    "organization": {
+      "additionalProperties": true,
+      "properties": {
+        "id": {
+          "description": "The id of the organization this project belongs to (if any)",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "owner": {
+      "additionalProperties": true,
+      "properties": {
+        "id": {
+          "description": "Not documented, but seems to be the id of the user that owns this project.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "projectRoles": {
+      "items": {
+        "additionalProperties": true,
+        "properties": {
+          "id": {
+            "description": "Not documented, but seems to be the id of a 'projectroles' instance, which is used for assigning roles on this project to users ",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "projectType": {
+      "additionalProperties": true,
+      "properties": {
+        "id": {
+          "description": "Not documented, but seem to be a way to differ between different project types. I've only seen the value 'DEFAULT'",
+          "type": "string"
+        },
+        "name": {
+          "description": "Not documented, but seem to be a way to differ between different project types. I've only seen the value 'Default'",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "resources": {
+      "items": {
+        "additionalProperties": true,
+        "properties": {
+          "id": {
+            "description": "Not documented",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "team": {
+      "additionalProperties": true,
+      "properties": {
+        "id": {
+          "description": "Not documented, but seems to refer to the id of an instanse of the 'projectteams' datatype",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "transitiveProjectRoles": {
+      "items": {
+        "additionalProperties": true,
+        "properties": {
+          "id": {
+            "description": "Not documented",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "title": "Pipe sink entity type: xxxxxx-hubprojects-collect",
+  "type": "object"
+}

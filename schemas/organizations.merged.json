@@ -1,0 +1,75 @@
+{
+  "$id": "/api/pipes/xxxxxx-organizations-collect/entity-types/sink",
+  "$schema": "http://json-schema.org/schema#",
+  "additionalProperties": true,
+  "properties": {
+    "allUsers": {
+      "description": "Not documented, but I would guess it is similar to the 'usergroups.allUsers' property, which is described as: True if this group contains all users, otherwise false. Read-only.",
+      "type": "boolean"
+    },
+    "creationTime": {
+      "description": "Not documented, but seems to be the creation time in milliseconds since epoch.",
+      "type": "integer"
+    },
+    "defaultIcon": {
+      "description": "Not documented",
+      "type": "boolean"
+    },
+    "description": {
+      "description": "A description of the organization",
+      "type": "string"
+    },
+    "icon": {
+      "description": "Not documented, but looks like a base64 encoded image that is used as the icon for this organization in the GUI.",
+      "type": "string"
+    },
+    "iconUrl": {
+      "description": "Not documented, but looks like an url for downloading the icon image",
+      "type": "string"
+    },
+    "id": {
+      "description": "The id of the organization",
+      "type": "string"
+    },
+    "key": {
+      "description": "Not documented. It looked like a uuid in the organizations in ours testdata (but not the same value as the 'id' field).",
+      "type": "string"
+    },
+    "name": {
+      "description": "The name of the organization.",
+      "type": "string"
+    },
+    "organizationRoles": {
+      "items": {
+        "additionalProperties": true,
+        "properties": {
+          "id": {
+            "description": "The id of a instance of the 'organizationrole' datatype.",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "projects": {
+      "items": {
+        "additionalProperties": true,
+        "properties": {
+          "id": {
+            "description": "The id of a 'hubproject' instance that belongs to this organization.",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "projectsCount": {
+      "description": "The number of 'hubproject' instances that belong to this organization.",
+      "type": "integer"
+    }
+  },
+  "title": "Pipe sink entity type: xxxxxx-organizations-collect",
+  "type": "object"
+}

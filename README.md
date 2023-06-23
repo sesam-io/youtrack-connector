@@ -76,6 +76,21 @@ The "group" from the Youtrack api has two ids:
 The reason we need to collect the "groups" is that it is this id that that the other datatypes in Youtrack refer to.
 "groups" is a readonly datatype, so is has no share-pipe.
 
+## About projects and hubprojects
+
+The "projects" and "hubprojects" datatypes are similar to the "usersyoutrack" and "users" datatypes.
+
+The main youtrack api lets you retrieve and update some of the project properties (ref: https://www.jetbrains.com/help/youtrack/devportal/resource-api-admin-projects.html).
+
+The "Hub" api lets us get some additional information (for instance which organization a project belongs to (ref: https://www.jetbrains.com/help/youtrack/devportal/HUB-REST-API_Projects.html).
+
+The "project" from the Youtrack api has two ids:
+
+  * A "id" field that looks something like this: "1-6".
+  * A "ringId" field that looks something like "f76f0560-7483-47cf-a82f-5dc1f46ed14c" and that refers to the "id" field
+    of the corresponding "Hub" project.
+
+We don't have a share-pipe for the 'hubproject' datatype, since it seems that we can update all the properties we need via the "project" main api.
 
 ### Testing APIs with Postman
 Choose the authorization method to be the `Bearer Token` and use your Youtrack api key as for the token. 

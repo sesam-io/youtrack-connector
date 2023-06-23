@@ -46,6 +46,10 @@
       "description": "The name of the project. Can be null.",
       "type": "string"
     },
+    "ringId": {
+      "description": "ID of the corresponding 'hubprojects' entity.",
+      "type": "string"
+    },
     "shortName": {
       "description": "The ID of the project. This short name is also a prefix for an issue ID. Can be null.",
       "type": "string"

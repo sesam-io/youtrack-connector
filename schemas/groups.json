@@ -13,7 +13,7 @@
     },
     "ringId": {
       "type": "string",
-      "description": "ID of the corresponding 'usergroup' entity."
+      "description": "ID of the corresponding 'usergroups' entity."
     }
   },
   "title": "Pipe sink entity type: xxxxxx-groups-collect",

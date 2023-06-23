@@ -15,7 +15,7 @@
       "type": "string"
     },
     "ringId": {
-      "description": "ID of the corresponding 'usergroup' entity.",
+      "description": "ID of the corresponding 'usergroups' entity.",
       "type": "string"
     }
   },

@@ -29,6 +29,11 @@
       "type": "string",
       "description": "The ID of the project. Read-only."
     },
+    "ringId": {
+      "type": "string",
+        "description": "ID of the corresponding 'hubprojects' entity."
+      },
+
     "leader": {
       "additionalProperties": true,
       "properties": {

@@ -33,6 +33,9 @@
     },
     "roles": {
       "template": "templates/projects.json"
+    },
+      "projectroles": {
+      "template": "templates/projects.json"
     }
   },
   "system": "YouTrack",

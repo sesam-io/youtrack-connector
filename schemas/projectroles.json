@@ -1,0 +1,55 @@
+{
+  "$id": "/api/pipes/xxxxxx-projectroles-collect/entity-types/sink",
+  "$schema": "http://json-schema.org/schema#",
+  "additionalProperties": true,
+  "properties": {
+    "id": {
+      "description": "The id of the project role.",
+      "type": "string"
+    },
+    "role": {
+      "additionalProperties": true,
+      "properties": {
+        "id": {
+          "description": "The id of the role.",
+          "type": "string"
+        },
+        "immutable": {
+          "description": "A boolean value that indicates whether the role is immutable.",
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "project": {
+      "additionalProperties": true,
+      "properties": {
+        "id": {
+          "description": "The id of the project.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "owner": {
+      "additionalProperties": true,
+      "properties": {
+        "id": {
+          "description": "The id of the owner (authorityHolder).",
+          "type": "string"
+        },
+        "type": {
+          "description": "Shows the owner type. e.g. it can be user or usergroup.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "teamMember": {
+      "description": "Indicates if the project role has team members.",
+      "type": "boolean"
+    }
+  },
+  "title": "Pipe sink entity type: xxxxxx-projectroles-collect",
+  "type": "object"
+}

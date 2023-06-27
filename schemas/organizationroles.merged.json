@@ -4,12 +4,14 @@
   "additionalProperties": true,
   "properties": {
     "id": {
+      "description": "The id of the organization role.",
       "type": "string"
     },
     "organization": {
       "additionalProperties": true,
       "properties": {
         "id": {
+          "description": "The id of the organization.",
           "type": "string"
         }
       },
@@ -19,9 +21,11 @@
       "additionalProperties": true,
       "properties": {
         "id": {
+          "description": "The id of the owner (authorityHolder).",
           "type": "string"
         },
         "type": {
+          "description": "Shows the owner type. e.g. it can be user or usergroup.",
           "type": "string"
         }
       },
@@ -31,9 +35,11 @@
       "additionalProperties": true,
       "properties": {
         "id": {
+          "description": "The id of the role.",
           "type": "string"
         },
         "immutable": {
+          "description": "A boolean value that indicates whether the role is immutable.",
           "type": "boolean"
         }
       },

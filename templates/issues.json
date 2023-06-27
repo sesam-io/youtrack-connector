@@ -21,7 +21,7 @@
             ],
             [
               "add",
-              "$last_modified",
+              "$last-modified",
               [
                 "datetime",
                 [

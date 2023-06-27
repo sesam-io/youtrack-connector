@@ -285,6 +285,27 @@
         "fields": "id,role(id),project(id),owner(id),teamMember"
       },
       "url": "hub/rest/projectroles/{{ id }}"
+    },
+    "organizationroles-list": {
+      "id_expression": "{{ id }}",
+      "method": "GET",
+      "next_page_link": "{{url}}",
+      "next_page_termination_strategy": ["empty-result"],
+      "params": {
+        "$skip": "{% if is_first_page  %}0{% else %}{{previous_params['$top'] * page}}{% endif %}",
+        "$top": 50,
+        "fields": "id,role(id),organization(id),owner(id)"
+      },
+      "payload_property": "organizationroles",
+      "url": "hub/rest/organizationroles"
+    },
+    "organizationroles-lookup": {
+      "id_expression": "{{ id }}",
+      "method": "GET",
+      "params": {
+        "fields": "id,role(id),project(id),owner(id)"
+      },
+      "url": "hub/rest/organizationroles/{{ id }}"
     }
   },
   "type": "system:rest",

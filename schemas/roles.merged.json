@@ -3,36 +3,49 @@
   "$schema": "http://json-schema.org/schema#",
   "additionalProperties": true,
   "properties": {
-    "description": {
-      "type": "string"
-    },
-    "id": {
-      "type": "string"
-    },
-    "immutable": {
-      "type": "boolean"
-    },
-    "key": {
-      "type": "string"
-    },
-    "name": {
-      "type": "string"
-    },
-    "permissions": {
+    "aliases": {
+      "description": "An array of aliases.",
       "items": {
         "additionalProperties": true,
         "properties": {
           "id": {
-            "type": "string"
-          },
-          "key": {
-            "type": "string"
-          },
-          "name": {
+            "description": "The id of the alias.",
             "type": "string"
           }
-        },
-        "type": "object"
+        }
+      },
+      "type": "array"
+    },
+    "description": {
+      "description": "The description of the role.",
+      "type": "string"
+    },
+    "id": {
+      "description": "The id of the role.",
+      "type": "string"
+    },
+    "immutable": {
+      "description": "A boolean value that indicates if the role is mutable.",
+      "type": "string"
+    },
+    "key": {
+      "description": "The key of the role type.",
+      "type": "string"
+    },
+    "name": {
+      "description": "The name of the role type.",
+      "type": "string"
+    },
+    "permissions": {
+      "description": "An array of permissions that the role has.",
+      "items": {
+        "additionalProperties": true,
+        "properties": {
+          "id": {
+            "description": "The id of the permission.",
+            "type": "string"
+          }
+        }
       },
       "type": "array"
     }

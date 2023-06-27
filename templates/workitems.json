@@ -17,11 +17,11 @@
           ],
           [
             "comment",
-            "Set $last_modified on 'updated' if set, else fallback to 'created'."
+            "Set $last-modified on 'updated' if set, else fallback to 'created'."
           ],
           [
             "add",
-            "$last_modified",
+            "$last-modified",
             [
               "datetime",
               [

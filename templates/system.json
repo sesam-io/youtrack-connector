@@ -265,14 +265,6 @@
       "method": "POST",
       "url": "hub/rest/roles/{{ id }}"
     },
-    "projectroles-delete": {
-      "method": "DELETE",
-      "url": "hub/rest/projectroles/{{ id }}"
-    },
-    "projectroles-insert": {
-      "method": "POST",
-      "url": "hub/rest/projectroles"
-    },
     "projectroles-list": {
       "id_expression": "{{ id }}",
       "method": "GET",
@@ -292,10 +284,6 @@
       "params": {
         "fields": "id,role(id),project(id),owner(id),teamMember"
       },
-      "url": "hub/rest/projectroles/{{ id }}"
-    },
-    "projectroles-update": {
-      "method": "POST",
       "url": "hub/rest/projectroles/{{ id }}"
     }
   },

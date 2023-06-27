@@ -1,0 +1,55 @@
+{
+  "$id": "/api/pipes/xxxxxx-roles-collect/entity-types/sink",
+  "$schema": "http://json-schema.org/schema#",
+  "additionalProperties": true,
+  "properties": {
+    "id": {
+      "description": "The id of the role.",
+      "type": "string"
+    }, 
+    "aliases": {
+      "description": "An array of aliases.",
+      "items": {
+        "additionalProperties": true,
+        "properties": {
+          "id": {
+            "description": "The id of the alias.",
+            "type": "string"
+          }
+        }
+      },
+      "type": "array"
+    }, 
+    "key": {
+      "description": "The key of the role type.",
+      "type": "string"
+    }, 
+    "name": {
+      "description": "The name of the role type.",
+      "type": "string"
+    }, 
+    "description": {
+      "description": "The description of the role.",
+      "type": "string"
+    }, 
+    "permissions": {
+      "description": "An array of permissions that the role has.",
+      "items": {
+        "additionalProperties": true,
+        "properties": {
+          "id": {
+            "description": "The id of the permission.",
+            "type": "string"
+          }
+        }
+      },
+      "type": "array"
+    }, 
+    "immutable": {
+      "description": "A boolean value that indicates if the role is mutable.",
+      "type": "string"
+    }
+  },
+  "title": "Pipe sink entity type: xxxxxx-roles-collect",
+  "type": "object"
+}

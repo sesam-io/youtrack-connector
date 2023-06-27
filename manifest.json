@@ -30,6 +30,9 @@
     },
     "workitems": {
       "template": "templates/workitems.json"
+    },
+    "roles": {
+      "template": "templates/projects.json"
     }
   },
   "system": "YouTrack",

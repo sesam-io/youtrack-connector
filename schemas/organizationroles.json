@@ -1,0 +1,51 @@
+{
+  "$id": "/api/pipes/xxxxxx-organizationroles-collect/entity-types/sink",
+  "$schema": "http://json-schema.org/schema#",
+  "additionalProperties": true,
+  "properties": {
+    "id": {
+      "description": "The id of the organization role.",
+      "type": "string"
+    },
+    "role": {
+      "additionalProperties": true,
+      "properties": {
+        "id": {
+          "description": "The id of the role.",
+          "type": "string"
+        },
+        "immutable": {
+          "description": "A boolean value that indicates whether the role is immutable.",
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "organization": {
+      "additionalProperties": true,
+      "properties": {
+        "id": {
+          "description": "The id of the organization.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "owner": {
+      "additionalProperties": true,
+      "properties": {
+        "id": {
+          "description": "The id of the owner (authorityHolder).",
+          "type": "string"
+        },
+        "type": {
+          "description": "Shows the owner type. e.g. it can be user or usergroup.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "title": "Pipe sink entity type: xxxxxx-organizationroles-collect",
+  "type": "object"
+}

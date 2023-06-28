@@ -34,7 +34,10 @@
     "roles": {
       "template": "templates/projects.json"
     },
-      "projectroles": {
+    "projectroles": {
+      "template": "templates/groups.json"
+    },
+    "organizationroles": {
       "template": "templates/groups.json"
     }
   },

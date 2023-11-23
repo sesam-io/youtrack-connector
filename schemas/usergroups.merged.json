@@ -3,6 +3,21 @@
   "$schema": "http://json-schema.org/schema#",
   "additionalProperties": true,
   "properties": {
+    "aliases": {
+      "items": {
+        "additionalProperties": true,
+        "properties": {
+          "action": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
     "allUsers": {
       "description": "True if this group contains all users, otherwise false. Read-only.",
       "type": "boolean"

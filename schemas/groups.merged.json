@@ -17,6 +17,31 @@
     "ringId": {
       "description": "ID of the corresponding 'usergroups' entity.",
       "type": "string"
+    },
+    "teamForProject": {
+      "anyOf": [
+        {
+          "additionalProperties": true,
+          "properties": {
+            "$type": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "shortName": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "usersCount": {
+      "type": "integer"
     }
   },
   "title": "Pipe sink entity type: xxxxxx-groups-collect",

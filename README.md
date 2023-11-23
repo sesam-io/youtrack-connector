@@ -3,6 +3,15 @@
 ## YouTrack wiki and access token
 https://github.com/datanav/sesam-talk-config/wiki/Connectors:Youtrack
 
+## Why YouTrack has two sets of APIs?
+The reason YouTrack has two sets of APIs, one for YouTrack itself and another for Hub, is because these products serve different purposes, and their APIs reflect that.
+1. YouTrack REST API: This API is specific to YouTrack and is designed to interact with and manipulate YouTrack issues, projects, and related entities. It allows developers to integrate YouTrack functionality into other applications, automate workflows, and perform various actions related to issue tracking. The YouTrack REST API is focused on interacting with YouTrack entities, specifically user-related operations.
+2. Hub API: Hub is a separate product that provides centralized authentication, authorization, and user management for JetBrains' products. The Hub API is used to manage users, roles, permissions, and other security-related aspects across the JetBrains product ecosystem, including YouTrack.
+If you are working with user-related functionalities that involve authentication, authorization, or managing user roles and permissions across multiple JetBrains products (not just YouTrack), you may need to use the Hub API.
+
+However during researching phase for creating the youtrack connector we found out for example `issues` only exist on the Youtrack main API and `organization` and `organization-roles` only exist on the hub API. So, we need to collect data from both APIs because they complete 
+each other.
+
 ## About usersyoutrack and users
 
 The "usersyoutrack" and "users" datatypes are specialcases: The main youtrack api only gives a readonly view of 

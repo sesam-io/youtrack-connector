@@ -14,7 +14,7 @@
       "params": {
         "$skip": "{% if is_first_page  %}0{% else %}{{previous_params['$top'] * page}}{% endif %}",
         "$top": 50,
-        "fields": "id,ringId,name"
+        "fields": "id,name,usersCount,teamForProject(name,shortName)"
       },
       "url": "api/groups"
     },
@@ -65,7 +65,7 @@
       "id_expression": "{{ id }}",
       "method": "GET",
       "params": {
-        "fields": "id,attachments(id),comments(id),created,description,externalIssue(id),isDraft,links(id),parent(id),project(id),resolved,subtasks(id),reporter(id),updated"
+        "fields": "id,attachments(id),comments(id),created,description,externalIssue(id),isDraft,links(id),parent(id),project(id),resolved,subtasks(id),reporter(id),updated,aggregation,directed,name,readOnly,sourceToTarget,targetToSource"
       },
       "url": "api/issues"
     },
@@ -73,7 +73,7 @@
       "id_expression": "{{ id }}",
       "method": "GET",
       "params": {
-        "fields": "id,attachments(id),comments(id),created,description,externalIssue(id),isDraft,links(id),parent(id),project(id),resolved,subtasks(id),reporter(id),updated"
+        "fields": "id,attachments(id),comments(id),created,description,externalIssue(id),isDraft,links(id),parent(id),project(id),resolved,subtasks(id),reporter(id),updated,aggregation,directed,name,readOnly,sourceToTarget,targetToSource"
       },
       "url": "api/issues/{{ id }}"
     },
@@ -180,7 +180,7 @@
       "params": {
         "$skip": "{% if is_first_page  %}0{% else %}{{previous_params['$top'] * page}}{% endif %}",
         "$top": 42,
-        "fields": "id,ringId,name,shortName,archived,createdBy(id),description,iconUrl,leader(id),team(id),template"
+        "fields": "id,ringId,name,shortName,archived,createdBy(login,name,id),description,iconUrl,leader(login,name,id),team(id),template,key"
       },
       "url": "api/admin/projects"
     },
@@ -188,7 +188,7 @@
       "id_expression": "{{ id }}",
       "method": "GET",
       "params": {
-        "fields": "id,ringId,name,shortName,archived,createdBy(id),description,iconUrl,leader(id),team(id),template"
+        "fields": "id,ringId,name,shortName,archived,createdBy(login,name,id),description,iconUrl,leader(login,name,id),team(id),template,key"
       },
       "url": "api/admin/projects/{{ id }}"
     },
@@ -311,7 +311,7 @@
       "params": {
         "$skip": "{% if is_first_page  %}0{% else %}{{previous_params['$top'] * page}}{% endif %}",
         "$top": 50,
-        "fields": "id,login,ringId"
+        "fields": "id,login,fullName,email,name,online,avatarUrl,banned,tags(id,name,untagOnResolve,updateableBy(id,name),visibleFor(name,id),owner(id,login))"
       },
       "url": "api/users"
     },
@@ -325,7 +325,7 @@
       "params": {
         "$skip": "{% if is_first_page  %}0{% else %}{{previous_params['$top'] * page}}{% endif %}",
         "$top": 42,
-        "fields": "id,author(id),creator(id),text,type(id),created,updated,duration(id,minutes,presentation),date,issue(id),attributes(id,value(id))"
+        "fields": "id,author(id,name),creator(id,name),text,type(id),created,updated,duration(id,minutes,presentation),date,issue(id),attributes(id,value(id))"
       },
       "url": "api/workItems"
     }

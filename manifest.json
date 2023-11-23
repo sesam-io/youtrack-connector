@@ -13,10 +13,19 @@
     "issues": {
       "template": "templates/issues.json"
     },
+    "organizationroles": {
+      "template": "templates/groups.json"
+    },
     "organizations": {
       "template": "templates/projects.json"
     },
+    "projectroles": {
+      "template": "templates/groups.json"
+    },
     "projects": {
+      "template": "templates/projects.json"
+    },
+    "roles": {
       "template": "templates/projects.json"
     },
     "usergroups": {
@@ -30,15 +39,6 @@
     },
     "workitems": {
       "template": "templates/workitems.json"
-    },
-    "roles": {
-      "template": "templates/projects.json"
-    },
-    "projectroles": {
-      "template": "templates/groups.json"
-    },
-    "organizationroles": {
-      "template": "templates/groups.json"
     }
   },
   "system": "YouTrack",

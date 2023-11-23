@@ -8,7 +8,9 @@
       "id_expression": "{{ id }}",
       "method": "GET",
       "next_page_link": "{{url}}",
-      "next_page_termination_strategy": ["empty-result"],
+      "next_page_termination_strategy": [
+        "empty-result"
+      ],
       "params": {
         "$skip": "{% if is_first_page  %}0{% else %}{{previous_params['$top'] * page}}{% endif %}",
         "$top": 50,
@@ -28,11 +30,13 @@
       "id_expression": "{{ id }}",
       "method": "GET",
       "next_page_link": "{{url}}",
-      "next_page_termination_strategy": ["empty-result"],
+      "next_page_termination_strategy": [
+        "empty-result"
+      ],
       "params": {
         "$skip": "{% if is_first_page  %}0{% else %}{{previous_params['$top'] * page}}{% endif %}",
         "$top": 50,
-        "fields": "id,key,name,archived,description,creationTime,iconUrl,icon,defaultIcon,resources(id),projectRoles(id),transitiveProjectRoles(id),myFavorite,team(id),owner(id),global,organization(id),projectType(id,name)"
+        "fields": ""
       },
       "payload_property": "projects",
       "url": "hub/rest/projects"
@@ -41,7 +45,7 @@
       "id_expression": "{{ id }}",
       "method": "GET",
       "params": {
-        "fields": "id,key,name,archived,description,creationTime,iconUrl,icon,defaultIcon,resources(id),projectRoles(id),transitiveProjectRoles(id),myFavorite,team(id),owner(id),global,organization(id),projectType(id,name)"
+        "fields": ""
       },
       "url": "hub/rest/projects/{{ id }}"
     },
@@ -77,6 +81,29 @@
       "method": "POST",
       "url": "api/issues/{{ id }}"
     },
+    "organizationroles-list": {
+      "id_expression": "{{ id }}",
+      "method": "GET",
+      "next_page_link": "{{url}}",
+      "next_page_termination_strategy": [
+        "empty-result"
+      ],
+      "params": {
+        "$skip": "{% if is_first_page  %}0{% else %}{{previous_params['$top'] * page}}{% endif %}",
+        "$top": 50,
+        "fields": ""
+      },
+      "payload_property": "organizationroles",
+      "url": "hub/rest/organizationroles"
+    },
+    "organizationroles-lookup": {
+      "id_expression": "{{ id }}",
+      "method": "GET",
+      "params": {
+        "fields": ""
+      },
+      "url": "hub/rest/organizationroles/{{ id }}"
+    },
     "organizations-delete": {
       "method": "DELETE",
       "url": "hub/rest/organizations/{{ id }}"
@@ -89,11 +116,13 @@
       "id_expression": "{{ id }}",
       "method": "GET",
       "next_page_link": "{{url}}",
-      "next_page_termination_strategy": ["empty-result"],
+      "next_page_termination_strategy": [
+        "empty-result"
+      ],
       "params": {
         "$skip": "{% if is_first_page  %}0{% else %}{{previous_params['$top'] * page}}{% endif %}",
         "$top": 50,
-        "fields": "id,key,name,description,emailDomain,creationTime,projects(id),ownUsers(id),users(id),allUsers,groups(id),teams(id),projectsCount,iconUrl,icon,defaultIcon,organizationRoles(id)"
+        "fields": ""
       },
       "payload_property": "organizations",
       "url": "hub/rest/organizations"
@@ -102,13 +131,36 @@
       "id_expression": "{{ id }}",
       "method": "GET",
       "params": {
-        "fields": "id,key,name,description,emailDomain,creationTime,projects(id),ownUsers(id),users(id),allUsers,groups(id),teams(id),projectsCount,iconUrl,icon,defaultIcon,organizationRoles(id)"
+        "fields": ""
       },
       "url": "hub/rest/organizations/{{ id }}"
     },
     "organizations-update": {
       "method": "POST",
       "url": "hub/rest/organizations/{{ id }}"
+    },
+    "projectroles-list": {
+      "id_expression": "{{ id }}",
+      "method": "GET",
+      "next_page_link": "{{url}}",
+      "next_page_termination_strategy": [
+        "empty-result"
+      ],
+      "params": {
+        "$skip": "{% if is_first_page  %}0{% else %}{{previous_params['$top'] * page}}{% endif %}",
+        "$top": 50,
+        "fields": ""
+      },
+      "payload_property": "projectroles",
+      "url": "hub/rest/projectroles"
+    },
+    "projectroles-lookup": {
+      "id_expression": "{{ id }}",
+      "method": "GET",
+      "params": {
+        "fields": ""
+      },
+      "url": "hub/rest/projectroles/{{ id }}"
     },
     "projects-delete": {
       "method": "DELETE",
@@ -122,7 +174,9 @@
       "id_expression": "{{ id }}",
       "method": "GET",
       "next_page_link": "{{url}}",
-      "next_page_termination_strategy": ["empty-result"],
+      "next_page_termination_strategy": [
+        "empty-result"
+      ],
       "params": {
         "$skip": "{% if is_first_page  %}0{% else %}{{previous_params['$top'] * page}}{% endif %}",
         "$top": 42,
@@ -142,6 +196,41 @@
       "method": "POST",
       "url": "api/admin/projects/{{ id }}"
     },
+    "roles-delete": {
+      "method": "DELETE",
+      "url": "hub/rest/roles/{{ id }}"
+    },
+    "roles-insert": {
+      "method": "POST",
+      "url": "hub/rest/roles"
+    },
+    "roles-list": {
+      "id_expression": "{{ id }}",
+      "method": "GET",
+      "next_page_link": "{{url}}",
+      "next_page_termination_strategy": [
+        "empty-result"
+      ],
+      "params": {
+        "$skip": "{% if is_first_page  %}0{% else %}{{previous_params['$top'] * page}}{% endif %}",
+        "$top": 50,
+        "fields": ""
+      },
+      "payload_property": "roles",
+      "url": "hub/rest/roles"
+    },
+    "roles-lookup": {
+      "id_expression": "{{ id }}",
+      "method": "GET",
+      "params": {
+        "fields": ""
+      },
+      "url": "hub/rest/roles/{{ id }}"
+    },
+    "roles-update": {
+      "method": "POST",
+      "url": "hub/rest/roles/{{ id }}"
+    },
     "usergroups-delete": {
       "method": "DELETE",
       "url": "hub/rest/usergroups/{{ id }}"
@@ -154,11 +243,13 @@
       "id_expression": "{{ id }}",
       "method": "GET",
       "next_page_link": "{{url}}",
-      "next_page_termination_strategy": ["empty-result"],
+      "next_page_termination_strategy": [
+        "empty-result"
+      ],
       "params": {
         "$skip": "{% if is_first_page  %}0{% else %}{{previous_params['$top'] * page}}{% endif %}",
         "$top": 50,
-        "fields": "description,iconUrl,autoJoin,autoJoinDomain,requiredTwoFactorAuthentication,parentsRequireTwoFactorAuthentication,users(id),ownUsers(id),userCount,parent(id),subgroups(id),teams(id),organizations(id),project(id),allUsers,registeredUsers,implicit,queriedSingleton,removable,immutable,id,name,projectRoles(id),transitiveProjectRoles(id),sourcedProjectRoles(id),organizationRoles(id),transitiveOrganizationRoles(id),sourcedOrganizationRoles(id)"
+        "fields": ""
       },
       "payload_property": "usergroups",
       "url": "hub/rest/usergroups"
@@ -167,7 +258,7 @@
       "id_expression": "{{ id }}",
       "method": "GET",
       "params": {
-        "fields": "description,iconUrl,autoJoin,autoJoinDomain,requiredTwoFactorAuthentication,parentsRequireTwoFactorAuthentication,users(id),ownUsers(id),userCount,parent(id),subgroups(id),teams(id),organizations(id),project(id),allUsers,registeredUsers,implicit,queriedSingleton,removable,immutable,id,name,projectRoles(id),transitiveProjectRoles(id),sourcedProjectRoles(id),organizationRoles(id),transitiveOrganizationRoles(id),sourcedOrganizationRoles(id)"
+        "fields": ""
       },
       "url": "hub/rest/usergroups/{{ id }}"
     },
@@ -187,11 +278,13 @@
       "id_expression": "{{ id }}",
       "method": "GET",
       "next_page_link": "{{url}}",
-      "next_page_termination_strategy": ["empty-result"],
+      "next_page_termination_strategy": [
+        "empty-result"
+      ],
       "params": {
         "$skip": "{% if is_first_page  %}0{% else %}{{previous_params['$top'] * page}}{% endif %}",
         "$top": 50,
-        "fields": "id,login,profile,banned,aliases,name"
+        "fields": ""
       },
       "payload_property": "users",
       "url": "hub/rest/users"
@@ -200,7 +293,7 @@
       "id_expression": "{{ id }}",
       "method": "GET",
       "params": {
-        "fields": "id,login,profile,banned,aliases,name"
+        "fields": ""
       },
       "url": "hub/rest/users/{{ id }}"
     },
@@ -212,7 +305,9 @@
       "id_expression": "{{ id }}",
       "method": "GET",
       "next_page_link": "{{url}}",
-      "next_page_termination_strategy": ["empty-result"],
+      "next_page_termination_strategy": [
+        "empty-result"
+      ],
       "params": {
         "$skip": "{% if is_first_page  %}0{% else %}{{previous_params['$top'] * page}}{% endif %}",
         "$top": 50,
@@ -224,88 +319,15 @@
       "id_expression": "{{ id }}",
       "method": "GET",
       "next_page_link": "{{url}}",
-      "next_page_termination_strategy": ["empty-result"],
+      "next_page_termination_strategy": [
+        "empty-result"
+      ],
       "params": {
         "$skip": "{% if is_first_page  %}0{% else %}{{previous_params['$top'] * page}}{% endif %}",
         "$top": 42,
         "fields": "id,author(id),creator(id),text,type(id),created,updated,duration(id,minutes,presentation),date,issue(id),attributes(id,value(id))"
       },
       "url": "api/workItems"
-    },
-    "roles-delete": {
-      "method": "DELETE",
-      "url": "hub/rest/roles/{{ id }}"
-    },
-    "roles-insert": {
-      "method": "POST",
-      "url": "hub/rest/roles"
-    },
-    "roles-list": {
-      "id_expression": "{{ id }}",
-      "method": "GET",
-      "next_page_link": "{{url}}",
-      "next_page_termination_strategy": ["empty-result"],
-      "params": {
-        "$skip": "{% if is_first_page  %}0{% else %}{{previous_params['$top'] * page}}{% endif %}",
-        "$top": 50,
-        "fields": "id,aliases,key,name,description,permissions,immutable"
-      },
-      "payload_property": "roles",
-      "url": "hub/rest/roles"
-    },
-    "roles-lookup": {
-      "id_expression": "{{ id }}",
-      "method": "GET",
-      "params": {
-        "fields": "id,aliases,key,name,description,permissions,immutable"
-      },
-      "url": "hub/rest/roles/{{ id }}"
-    },
-    "roles-update": {
-      "method": "POST",
-      "url": "hub/rest/roles/{{ id }}"
-    },
-    "projectroles-list": {
-      "id_expression": "{{ id }}",
-      "method": "GET",
-      "next_page_link": "{{url}}",
-      "next_page_termination_strategy": ["empty-result"],
-      "params": {
-        "$skip": "{% if is_first_page  %}0{% else %}{{previous_params['$top'] * page}}{% endif %}",
-        "$top": 50,
-        "fields": "id,role(id),project(id),owner(id),teamMember"
-      },
-      "payload_property": "projectroles",
-      "url": "hub/rest/projectroles"
-    },
-    "projectroles-lookup": {
-      "id_expression": "{{ id }}",
-      "method": "GET",
-      "params": {
-        "fields": "id,role(id),project(id),owner(id),teamMember"
-      },
-      "url": "hub/rest/projectroles/{{ id }}"
-    },
-    "organizationroles-list": {
-      "id_expression": "{{ id }}",
-      "method": "GET",
-      "next_page_link": "{{url}}",
-      "next_page_termination_strategy": ["empty-result"],
-      "params": {
-        "$skip": "{% if is_first_page  %}0{% else %}{{previous_params['$top'] * page}}{% endif %}",
-        "$top": 50,
-        "fields": "id,role(id),organization(id),owner(id)"
-      },
-      "payload_property": "organizationroles",
-      "url": "hub/rest/organizationroles"
-    },
-    "organizationroles-lookup": {
-      "id_expression": "{{ id }}",
-      "method": "GET",
-      "params": {
-        "fields": "id,role(id),project(id),owner(id)"
-      },
-      "url": "hub/rest/organizationroles/{{ id }}"
     }
   },
   "type": "system:rest",

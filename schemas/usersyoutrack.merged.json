@@ -6,6 +6,25 @@
     "$type": {
       "type": "string"
     },
+    "avatarUrl": {
+      "type": "string"
+    },
+    "banned": {
+      "type": "boolean"
+    },
+    "email": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "string"
+        }
+      ]
+    },
+    "fullName": {
+      "type": "string"
+    },
     "id": {
       "description": "The ID of the user. Read-only.",
       "type": "string"
@@ -14,9 +33,57 @@
       "description": "The login of the user. Read-only.",
       "type": "string"
     },
+    "name": {
+      "type": "string"
+    },
+    "online": {
+      "type": "boolean"
+    },
     "ringId": {
       "description": "ID of the user in Hub. You can use this ID for operations in Hub, and for matching users between YouTrack and Hub. Read-only. Can be null.",
       "type": "string"
+    },
+    "tags": {
+      "items": {
+        "additionalProperties": true,
+        "properties": {
+          "$type": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "owner": {
+            "additionalProperties": true,
+            "properties": {
+              "$type": {
+                "type": "string"
+              },
+              "id": {
+                "type": "string"
+              },
+              "login": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "untagOnResolve": {
+            "type": "boolean"
+          },
+          "updateableBy": {
+            "type": "null"
+          },
+          "visibleFor": {
+            "type": "null"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
     }
   },
   "title": "Pipe sink entity type: xxxxxx-usersyoutrack-collect",

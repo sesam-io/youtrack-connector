@@ -3,6 +3,21 @@
   "$schema": "http://json-schema.org/schema#",
   "additionalProperties": true,
   "properties": {
+    "aliases": {
+      "items": {
+        "additionalProperties": true,
+        "properties": {
+          "action": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
     "archived": {
       "description": "If the project is currently archived, this property is true.",
       "type": "boolean"
@@ -10,6 +25,84 @@
     "creationTime": {
       "description": "Not documented, but it seems to be the creation time in milliseconds since the epoch",
       "type": "integer"
+    },
+    "dashboard": {
+      "additionalProperties": true,
+      "properties": {
+        "widgets": {
+          "items": {
+            "additionalProperties": true,
+            "properties": {
+              "config": {
+                "additionalProperties": true,
+                "properties": {
+                  "created": {
+                    "type": "string"
+                  },
+                  "customWidgetConfig": {
+                    "additionalProperties": true,
+                    "properties": {
+                      "search": {
+                        "type": "string"
+                      },
+                      "selectedProject": {
+                        "additionalProperties": true,
+                        "properties": {
+                          "key": {
+                            "type": "string"
+                          },
+                          "label": {
+                            "type": "string"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "youTrack": {
+                        "additionalProperties": true,
+                        "properties": {
+                          "homeUrl": {
+                            "type": "string"
+                          },
+                          "id": {
+                            "type": "string"
+                          }
+                        },
+                        "type": "object"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "notCompleted": {
+                    "type": "boolean"
+                  }
+                },
+                "type": "object"
+              },
+              "directive": {
+                "type": "string"
+              },
+              "grid": {
+                "additionalProperties": true,
+                "properties": {
+                  "height": {
+                    "type": "integer"
+                  },
+                  "width": {
+                    "type": "integer"
+                  }
+                },
+                "type": "object"
+              },
+              "id": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
     },
     "defaultIcon": {
       "description": "Not documented",

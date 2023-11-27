@@ -14,7 +14,7 @@
       "params": {
         "$skip": "{% if is_first_page  %}0{% else %}{{previous_params['$top'] * page}}{% endif %}",
         "$top": 50,
-        "fields": "id,name,usersCount,teamForProject(name,shortName)"
+        "fields": "id,ringId,name,usersCount,teamForProject(name,shortName)"
       },
       "url": "api/groups"
     },

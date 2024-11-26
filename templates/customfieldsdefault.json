@@ -1,0 +1,77 @@
+[
+  {
+    "_id": "{{@ system @}}-{{@ datatype @}}-all",
+    "namespaced_identifiers": false,
+    "source": {
+      "dataset": "{{@ system @}}-customfields-collect",
+      "type": "dataset"
+    },
+    "transform": [
+      {
+        "rules": {
+          "create_{{@ datatype @}}": [
+            [
+              "filter",
+              [
+                "eq",
+                "_S.$type",
+                "CustomFieldDefaults"
+              ]
+            ],
+            [
+              "add",
+              "_id",
+              [
+                "string",
+                "_S.id"
+              ]
+            ]
+          ],
+          "default": [
+            [
+              "create-child",
+              [
+                "apply",
+                "create_{{@ datatype @}}",
+                "_S.fieldDefaults"
+              ]
+            ]
+          ]
+        },
+        "type": "dtl"
+      }
+    ],
+    "type": "pipe"
+  },
+  {
+    "_id": "{{@ system @}}-{{@ datatype @}}-all2",
+    "source": {
+      "dataset": "{{@ system @}}-{{@ datatype @}}-all",
+      "type": "dataset"
+    },
+    "transform": [
+      {
+        "type": "emit_children"
+      }
+    ],
+    "type": "pipe"
+  },
+  {
+    "_id": "{{@ system @}}-{{@ datatype @}}-collect",
+    "namespaced_identifiers": false,
+    "source": {
+      "dataset": "{{@ system @}}-{{@ datatype @}}-all2",
+      "type": "dataset"
+    },
+    "transform": [
+      {
+        "properties": {
+          "primary_key": "id"
+        },
+        "template": "transform-collect-rest",
+        "type": "template"
+      }
+    ],
+    "type": "pipe"
+  }
+]

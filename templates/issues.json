@@ -1,9 +1,6 @@
 [
   {
-    "_id": "{{@ system @}}-{{@ datatype @}}-collect",
-    "exclude_completeness": [
-      "{{@ system @}}-{{@ datatype @}}-share"
-    ],
+    "_id": "{{@ system @}}-{{@ datatype @}}-all",
     "namespaced_identifiers": false,
     "source": {
       "operation": "{{@ datatype @}}-list",
@@ -11,7 +8,29 @@
       "system": "{{@ system @}}",
       "type": "rest"
     },
+    "type": "pipe"
+  },
+  {
+    "_id": "{{@ system @}}-{{@ datatype @}}-collect",
+    "exclude_completeness": [
+      "{{@ system @}}-{{@ datatype @}}-share"
+    ],
+    "namespaced_identifiers": false,
+    "source": {
+      "dataset": "{{@ system @}}-{{@ datatype @}}-all",
+      "type": "dataset"
+    },
     "transform": [
+      {
+        "properties": {
+          "operation_lookup_delete": "{{@ datatype @}}-lookup",
+          "primary_key": "id",
+          "rest_system": "{{@ system @}}",
+          "share_dataset": "{{@ system @}}-{{@ datatype @}}-share"
+        },
+        "template": "transform-collect-rest",
+        "type": "template"
+      },
       {
         "rules": {
           "default": [
@@ -34,14 +53,6 @@
           ]
         },
         "type": "dtl"
-      },
-      {
-        "properties": {
-          "primary_key": "id",
-          "share_dataset": "{{@ system @}}-{{@ datatype @}}-share"
-        },
-        "template": "transform-collect-rest",
-        "type": "template"
       }
     ],
     "type": "pipe"

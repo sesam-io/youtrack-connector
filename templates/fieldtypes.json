@@ -1,0 +1,30 @@
+[
+  {
+    "_id": "{{@ system @}}-{{@ datatype @}}-all",
+    "namespaced_identifiers": false,
+    "source": {
+      "operation": "{{@ datatype @}}-list",
+      "system": "{{@ system @}}",
+      "type": "rest"
+    },
+    "type": "pipe"
+  },
+  {
+    "_id": "{{@ system @}}-{{@ datatype @}}-collect",
+    "namespaced_identifiers": false,
+    "source": {
+      "dataset": "{{@ system @}}-{{@ datatype @}}-all",
+      "type": "dataset"
+    },
+    "transform": [
+      {
+        "properties": {
+          "primary_key": "id"
+        },
+        "template": "transform-collect-rest",
+        "type": "template"
+      }
+    ],
+    "type": "pipe"
+  }
+]

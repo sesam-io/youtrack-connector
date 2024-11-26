@@ -4,6 +4,15 @@
   },
   "auth": "api_key",
   "datatypes": {
+    "customfields": {
+      "template": "templates/customfields.json"
+    },
+    "customfieldsdefault": {
+      "template": "templates/customfieldsdefault.json"
+    },
+    "fieldtypes": {
+      "template": "templates/fieldtypes.json"
+    },
     "groups": {
       "template": "templates/groups.json"
     },
@@ -18,6 +27,9 @@
     },
     "organizations": {
       "template": "templates/projects.json"
+    },
+    "projectcustomfields": {
+      "template": "templates/projectcustomfields.json"
     },
     "projectroles": {
       "template": "templates/groups.json"

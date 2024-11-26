@@ -4,6 +4,30 @@
     "Authorization": "Bearer $SECRET(api_key)"
   },
   "operations": {
+    "customfields-list": {
+      "id_expression": "{{ id }}",
+      "method": "GET",
+      "params": {
+        "fields": "id,name,localizedName,fieldType(id),isAutoAttached,isDisplayedInIssueList,ordinal,aliases,fieldDefaults(id),hasRunningJob,isUpdateable,instances"
+      },
+      "url": "api/admin/customFieldSettings/customFields"
+    },
+    "customfieldsdefault-list": {
+      "id_expression": "{{ id }}",
+      "method": "GET",
+      "params": {
+        "fields": "id,name,localizedName,fieldType(id),isAutoAttached,isDisplayedInIssueList,ordinal,aliases,fieldDefaults(id),hasRunningJob,isUpdateable,instances(id)"
+      },
+      "url": "api/admin/customFieldSettings/customFields/{{ entity.id }}/fieldDefaults"
+    },
+    "fieldtypes-list": {
+      "id_expression": "{{ id }}",
+      "method": "GET",
+      "params": {
+        "fields": "id,presentation,isMultiValue,valueType"
+      },
+      "url": "api/admin/customFieldSettings/types"
+    },
     "groups-list": {
       "id_expression": "{{ id }}",
       "method": "GET",
@@ -65,7 +89,7 @@
       "id_expression": "{{ id }}",
       "method": "GET",
       "params": {
-        "fields": "id,attachments(id),comments(id),created,description,externalIssue(id),isDraft,links(id),parent(id),project(id),resolved,subtasks(id),reporter(id),updated,aggregation,directed,name,readOnly,sourceToTarget,targetToSource"
+        "fields": "id,attachments(id),comments(id),created,customFields(id),description,externalIssue(id),isDraft,links(id),parent(id),project(id),resolved,subtasks(id),reporter(id),updated,aggregation,directed,name,readOnly,sourceToTarget,targetToSource"
       },
       "url": "api/issues"
     },
@@ -139,6 +163,13 @@
       "method": "POST",
       "url": "hub/rest/organizations/{{ id }}"
     },
+    "projectcustomfields-list": {
+      "method": "GET",
+      "params": {
+        "fields": "id,field(id),project(id),canBeEmpty,emptyFieldText,ordinal,isPublic,hasRunningJob,condition(id)"
+      },
+      "url": "api/admin/customFieldSettings/customFields/{{ entity.id }}/instances"
+    },
     "projectroles-list": {
       "id_expression": "{{ id }}",
       "method": "GET",
@@ -180,7 +211,7 @@
       "params": {
         "$skip": "{% if is_first_page  %}0{% else %}{{previous_params['$top'] * page}}{% endif %}",
         "$top": 42,
-        "fields": "id,ringId,name,shortName,archived,createdBy(login,name,id),description,iconUrl,leader(login,name,id),team(id),template,key"
+        "fields": "id,ringId,name,shortName,archived,createdBy(login,name,id),description,iconUrl,leader(login,name,id),team(id),template,key,customFields(id),fromEmail,replyToEmail"
       },
       "url": "api/admin/projects"
     },
@@ -284,10 +315,9 @@
       "params": {
         "$skip": "{% if is_first_page  %}0{% else %}{{previous_params['$top'] * page}}{% endif %}",
         "$top": 50,
-        "fields": ""
+        "fields": "id"
       },
-      "payload_property": "users",
-      "url": "hub/rest/users"
+      "url": "api/users/"
     },
     "users-lookup": {
       "id_expression": "{{ id }}",
